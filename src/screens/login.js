@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions,TextInput } from 'react-native';
+import { View, Text, StyleSheet, Dimensions,TextInput, Button } from 'react-native';
 import Svg,{Image, Circle, ClipPath} from 'react-native-svg'
 import {KeyboardAvoidingView} from 'react-native'
 import Animated,{Easing} from 'react-native-reanimated'
@@ -53,7 +53,7 @@ function runTiming(clock, value, dest) {
   ]);
 }
 
-class MusicApp extends Component {
+class Login extends Component {
     constructor(){
         super()
 
@@ -126,7 +126,7 @@ class MusicApp extends Component {
             <Circle r={height} cx={width/2}/>
           </ClipPath>
           <Image
-            href={require('../assets/bg.jpg')}
+            href={require('./../../assets/bg.jpg')}
             height={height} width={width}
             preserveAspectRatio="xMidYMid slice"
             clipPath='url(#clip)'
@@ -158,8 +158,8 @@ class MusicApp extends Component {
             transform:[{translateY:this.textInputY}],
             height: height/3,
             backgroundColor: 'white',
-borderTopLeftRadius: 40,
-borderTopRightRadius: 40,
+            borderTopLeftRadius: 40,
+            borderTopRightRadius: 40,
 
         ...StyleSheet.absoluteFill,top:null,justifyContent:'center'}}>
           
@@ -179,6 +179,12 @@ borderTopRightRadius: 40,
             style={styles.textInput}
             placeholderTextColor='black'
           />
+            <Text onPress={() => this.props.navigation.navigate('Forgot')} style={{ textDecorationLine: 'underline', textAlign:'center', color:'gray'}}>
+            Forgot your password?
+          </Text>
+
+
+          
 
           <Animated.View style={styles.button}>
             <Text style={{fontSize:20,fontWeight:'bold'}}>SIGN IN</Text>
@@ -191,7 +197,7 @@ borderTopRightRadius: 40,
     );
   }
 }
-export default MusicApp;
+export default Login;
 
 const styles = StyleSheet.create({
   container: {

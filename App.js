@@ -3,7 +3,10 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { Asset } from 'expo-asset';
 import { AppLoading } from 'expo';
-import MusicApp from './app/index';
+
+import Navigation from './src/navigation/index';
+
+
 function cacheImages(images) {
   return images.map(image => {
     if (typeof image === 'string') {
@@ -13,6 +16,7 @@ function cacheImages(images) {
     }
   });
 }
+
 export default class App extends React.Component {
   constructor() {
     super();
@@ -37,7 +41,9 @@ export default class App extends React.Component {
         />
       );
     }
-    return <MusicApp />;
+    return (
+      <Navigation/>
+    );
   }
 }
 const styles = StyleSheet.create({
