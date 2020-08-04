@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import { View, Text, Dimensions, TextInput, Alert, ActivityIndicator, Keyboard, KeyboardAvoidingView, StyleSheet} from 'react-native';
-import Animated,{Easing} from 'react-native-reanimated'
-import Svg,{Image, Circle, ClipPath} from 'react-native-svg'
+import { View, Text, Dimensions, TextInput, Alert, Keyboard, KeyboardAvoidingView, StyleSheet} from 'react-native';
+import Animated from 'react-native-reanimated'
+import Svg,{Image} from 'react-native-svg'
 const { width, height } = Dimensions.get('window');
 
 const VALID_EMAIL = "yousra@yousra.com";

@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from '../screens/login';
 import Forgot from '../screens/forgot';
+import Signin from '../screens/signin';
 
 const Stack = createStackNavigator();
 
@@ -17,6 +18,7 @@ class Navigation extends Component{
             <Stack.Navigator initialRouteName="login">
                 <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
                 <Stack.Screen name="Forgot" component={Forgot} />
+                <Stack.Screen name="Signin" component={Signin} />
             </Stack.Navigator>
             </NavigationContainer>
         )
