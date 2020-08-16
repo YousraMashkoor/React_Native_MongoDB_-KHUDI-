@@ -55,10 +55,7 @@ class Forgot extends Component{
             email: VALID_EMAIL,
             errors: [],
             loading: false,
-          }
-
-        
-
+          }   
     }
     render(){
         return(

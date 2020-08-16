@@ -142,14 +142,15 @@ class Login extends Component {
             </Animated.View>
 
         </TapGestureHandler>
-
-        <Animated.View style={{ ...styles.button, backgroundColor: '#2E71DC',
-          opacity:this.buttonOpacity, 
-          transform:[{translateY:this.buttonY}]}}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>
-            JOIN US NOW
-            </Text>
-        </Animated.View>
+        <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('Signin')}>
+          <Animated.View style={{ ...styles.button, backgroundColor: '#2E71DC',
+            opacity:this.buttonOpacity, 
+            transform:[{translateY:this.buttonY}]}}>
+              <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>
+              JOIN US NOW
+              </Text>
+          </Animated.View>
+        </TapGestureHandler>
         <Animated.View 
           style={{
             zIndex:this.textInputZindex,
@@ -182,7 +183,7 @@ class Login extends Component {
             Forgot your password?
           </Text>
 
-          <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('Signin')}>
+          <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('dummyDisplay')}>
             <Animated.View style={styles.button}>
               <Text  style={{fontSize:20,fontWeight:'bold'}}>SIGN IN</Text>
             </Animated.View>
