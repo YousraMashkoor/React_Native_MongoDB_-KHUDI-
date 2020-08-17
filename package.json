@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
+    "@react-navigation/bottom-tabs": "^5.8.0",
     "@react-navigation/native": "^5.7.2",
     "@react-navigation/stack": "^5.8.0",
     "expo": "~38.0.8",
@@ -22,6 +23,7 @@
     "react-native-reanimated": "^1.1.0",
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
+    "react-native-star-rating": "^1.1.0",
     "react-native-svg": "^12.1.0",
     "react-native-web": "~0.11.7"
   },

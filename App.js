@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -6,6 +7,10 @@ import { AppLoading } from "expo";
 import Login from "./src/index";
 import Axios from "./axios";
 
+=======
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+>>>>>>> a664c85745f723414a952b427c561d310e4e2e5c
 import { Asset } from 'expo-asset';
 import { AppLoading } from 'expo';
 
