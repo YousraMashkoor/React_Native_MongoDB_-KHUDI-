@@ -6,6 +6,12 @@ import { AppLoading } from "expo";
 import Login from "./src/index";
 import Axios from "./axios";
 
+import { Asset } from 'expo-asset';
+import { AppLoading } from 'expo';
+
+import Navigation from './src/navigation/index';
+
+
 function cacheImages(images) {
   return images.map((image) => {
     if (typeof image === "string") {
@@ -15,6 +21,7 @@ function cacheImages(images) {
     }
   });
 }
+
 export default class App extends React.Component {
   constructor() {
     super();
@@ -40,7 +47,9 @@ export default class App extends React.Component {
         />
       );
     }
-    return <Login />;
+    return (
+      <Navigation/>
+    );
   }
 }
 const styles = StyleSheet.create({
