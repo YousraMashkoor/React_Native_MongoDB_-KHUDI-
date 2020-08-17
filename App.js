@@ -1,12 +1,14 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import { Asset } from 'expo-asset';
-import { AppLoading } from 'expo';
-import MusicApp from './app/index';
+import { Asset } from "expo-asset";
+import { AppLoading } from "expo";
+import Login from "./src/index";
+import Axios from "./axios";
+
 function cacheImages(images) {
-  return images.map(image => {
-    if (typeof image === 'string') {
+  return images.map((image) => {
+    if (typeof image === "string") {
       return Image.prefetch(image);
     } else {
       return Asset.fromModule(image).downloadAsync();
@@ -17,12 +19,13 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isReady: false
+      // data: [],
+      isReady: false,
     };
   }
 
   async _loadAssetsAsync() {
-    const imageAssets = cacheImages([require('./assets/bg.jpg')]);
+    const imageAssets = cacheImages([require("./assets/bg.jpg")]);
 
     await Promise.all([...imageAssets]);
   }
@@ -37,14 +40,14 @@ export default class App extends React.Component {
         />
       );
     }
-    return <MusicApp />;
+    return <Login />;
   }
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

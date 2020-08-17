@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "expo": "~38.0.8",
     "expo-asset": "~8.1.7",
     "expo-status-bar": "^1.0.2",
@@ -23,5 +24,18 @@
     "@babel/core": "^7.8.6",
     "babel-preset-expo": "~8.1.0"
   },
-  "private": true
+  "private": true,
+  "name": "react_native_mongodb_-khudi-",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YousraMashkoor/React_Native_MongoDB_-KHUDI-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YousraMashkoor/React_Native_MongoDB_-KHUDI-/issues"
+  },
+  "homepage": "https://github.com/YousraMashkoor/React_Native_MongoDB_-KHUDI-#readme",
+  "description": ""
 }
