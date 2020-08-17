@@ -62,22 +62,12 @@ class Signin extends Component{
                         style={styles.textInput}
                         placeholderTextColor='black'
                     />
-
-                    {/* <Text>Male</Text>
-                    <RadioButton
-                        value="male"
-                        status={ checked === 'male' ? 'checked' : 'unchecked' }
-                        onPress={() => setChecked('male')}
-                        color='#1F2833'
+                    <TextInput
+                        placeholder="PASSWORD"
+                        style={styles.textInput}
+                        placeholderTextColor='black'
+                        
                     />
-                    <RadioButton
-                        label="female"
-                        value="female"
-                        status={ checked === 'female' ? 'checked' : 'unchecked' }
-                        onPress={() => setChecked('female')}
-                        color='#1F2833'
-                    /> */}
-
                     <RadioButton.Group 
                         onValueChange={checked => setChecked(checked)} value={checked}
                         >
@@ -91,12 +81,9 @@ class Signin extends Component{
                                 label="Female" 
                                 value="female"
                                 color='#1F2833' />
-                            <RadioButton.Item 
-                                style={styles.radio}
-                                label="Confused" 
-                                value="confused"
-                                color='#1F2833' />
                     </RadioButton.Group>
+
+
 
                     <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('successfulSignin')}>
                         <Animated.View style={styles.button}>

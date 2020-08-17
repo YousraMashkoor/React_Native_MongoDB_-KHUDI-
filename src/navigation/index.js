@@ -10,7 +10,9 @@ import Login from '../screens/login';
 import Forgot from '../screens/forgot';
 import Signin from '../screens/signin';
 import Explore from '../screens/explore';
+import sellerForm from '../screens/sellerForm';
 import successfulSignin from '../component/successfulSignin';
+import becomeSeller from '../component/becomeSeller';
 import loading from '../component/loading';
 
 
@@ -60,7 +62,9 @@ class Navigation extends Component{
                     <Stack.Screen name="Signin" component={Signin} />
                     <Stack.Screen options={{headerShown: false}} name="successfulSignin" component={successfulSignin} />
                     <Stack.Screen options={{headerShown: false}} name="loading" component={loading} />
+                    <Stack.Screen options={{headerShown: false}} name="becomeSeller" component={becomeSeller} />
                     <Stack.Screen options={{headerShown: false}} name="Explore" component={MyTabs} />
+                    <Stack.Screen options={{headerTitle:'KHUDI Seller'}} name="sellerForm" component={sellerForm} />
                 </Stack.Navigator>
             </NavigationContainer>
         )
