@@ -178,6 +178,7 @@ class Login extends Component {
             placeholder="PASSWORD"
             style={styles.textInput}
             placeholderTextColor='black'
+            secureTextEntry
           />
             <Text onPress={() => this.props.navigation.navigate('Forgot')} style={{ textDecorationLine: 'underline', textAlign:'center', color:'gray'}}>
             Forgot your password?

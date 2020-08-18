@@ -23,13 +23,13 @@ class successfulSignin extends Component{
                     <Text style={{opacity:0.5,fontWeight:'100',color:'#1F2833', textAlign:'center',marginHorizontal: 50,marginVertical:20}}>
                         Start marketing your unique skills and began earning right now by becoming a seller</Text>
 
-                    <TapGestureHandler >
+                    <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('becomeSeller')}>
                         <Animated.View style={styles.button}>
                         <Text  style={{fontSize:20,fontWeight:'bold', color:'white'}}>Take me there</Text>
                         </Animated.View>
                     </TapGestureHandler>
 
-                    <Text onPress={() => this.props.navigation.navigate('loading')} style={{textAlign:'center', color:'#1F2833',fontSize:20,marginVertical:5}}>
+                    <Text onPress={() => this.props.navigation.navigate('Explore')} style={{textAlign:'center', color:'#1F2833',fontSize:20,marginVertical:5}}>
                         No Thanks
                     </Text>
                     
