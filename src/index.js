@@ -212,20 +212,26 @@ class Login extends Component {
               </Animated.View>
             </TapGestureHandler>
 
-            <Animated.View
-              style={{
-                ...styles.button,
-                backgroundColor: "#2E71DC",
-                opacity: this.buttonOpacity,
-                transform: [{ translateY: this.buttonY }],
-              }}
+            <TapGestureHandler
+              onHandlerStateChange={() =>
+                this.props.navigation.navigate("Signin")
+              }
             >
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+              <Animated.View
+                style={{
+                  ...styles.button,
+                  backgroundColor: "#2E71DC",
+                  opacity: this.buttonOpacity,
+                  transform: [{ translateY: this.buttonY }],
+                }}
               >
-                JOIN US NOW
-              </Text>
-            </Animated.View>
+                <Text
+                  style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+                >
+                  JOIN US NOW
+                </Text>
+              </Animated.View>
+            </TapGestureHandler>
             <Animated.View
               style={{
                 zIndex: this.textInputZindex,
