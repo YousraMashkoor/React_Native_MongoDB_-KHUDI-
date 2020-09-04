@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TextInput,
-  KeyboardAvoidingView,
-} from "react-native";
+import { View, Text, StyleSheet, Dimensions, TextInput } from "react-native";
 import Svg, { Image, Circle, ClipPath } from "react-native-svg";
+import { KeyboardAvoidingView } from "react-native";
 import Animated, { Easing } from "react-native-reanimated";
 import { TapGestureHandler, State } from "react-native-gesture-handler";
+
+import Axios from "../axios";
+
 const { width, height } = Dimensions.get("window");
 
 const {
@@ -62,6 +59,10 @@ function runTiming(clock, value, dest) {
 class Login extends Component {
   constructor() {
     super();
+    this.state = {
+      email: "",
+      password: "",
+    };
 
     this.buttonOpacity = new Value(1);
     this.OnStateChange = event([
@@ -123,6 +124,42 @@ class Login extends Component {
       extrapolate: Extrapolate.CLAMP,
     });
   }
+  //********************************LOGIN*************************************** */
+  onChangeText = (key, val) => {
+    this.setState({ [key]: val });
+  };
+  logIn = async () => {
+    const { email, password } = this.state;
+    console.log("this.state.email: ", this.state.email);
+    console.log("Login");
+    try {
+      let response = await Axios.post(
+        "http://192.168.2.109:5000/api/users/login",
+        {
+          email: this.state.email,
+          password: this.state.password,
+        }
+      );
+      console.log("Response: ", response);
+    } catch (err) {
+      console.log("Error: ", err.response.data.email);
+    }
+    console.log("HEREEEEEEEEEEE");
+  };
+
+  // componentDidMount() {
+  //   this.getApiData();
+  // }
+
+  // async getApiData() {
+  //   let response = await Axios.post("/login");
+  //   console.log("RESPONSE: ", response);
+  //   // console.warn(response.data);
+  //   this.setState({ data: response.data });
+  // }
+
+  //*********************************************************************** */
+
   render() {
     return (
       <KeyboardAvoidingView
@@ -152,7 +189,7 @@ class Login extends Component {
                 <Circle r={height} cx={width / 2} />
               </ClipPath>
               <Image
-                href={require("./../../assets/bg.jpg")}
+                href={require("../assets/bg.jpg")}
                 height={height}
                 width={width}
                 preserveAspectRatio="xMidYMid slice"
@@ -174,6 +211,7 @@ class Login extends Component {
                 </Text>
               </Animated.View>
             </TapGestureHandler>
+
             <TapGestureHandler
               onHandlerStateChange={() =>
                 this.props.navigation.navigate("Signin")
@@ -222,16 +260,32 @@ class Login extends Component {
                 </Animated.View>
               </TapGestureHandler>
 
+              {/* ******************************************************************** */}
+              {/* <View style={{ flex: 1, margin: 70 }}>
+                {this.state.data.length > 0 ? (
+                  <View>
+                    {this.state.data.map((item) => (
+                      <Text style={{ fontSize: 40 }}>{item.text}</Text>
+                    ))}
+                  </View>
+                ) : (
+                  <Text>Data is loading...</Text>
+                )}
+              </View> */}
+              {/* ******************************************************************** */}
+
               <TextInput
                 placeholder="EMAIL"
                 style={styles.textInput}
                 placeholderTextColor="black"
+                // onChangeText={this.onChangeEmail}
+                onChangeText={(val) => this.onChangeText("email", val)}
               />
               <TextInput
                 placeholder="PASSWORD"
                 style={styles.textInput}
                 placeholderTextColor="black"
-                secureTextEntry
+                onChangeText={(val) => this.onChangeText("password", val)}
               />
               <Text
                 onPress={() => this.props.navigation.navigate("Forgot")}
@@ -244,17 +298,20 @@ class Login extends Component {
                 Forgot your password?
               </Text>
 
-              <TapGestureHandler
+              {/* <TapGestureHandler
                 onHandlerStateChange={() =>
-                  this.props.navigation.navigate("Explore")
+                  this.props.navigation.navigate("Signin")
                 }
-              >
-                <Animated.View style={styles.button}>
-                  <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                    SIGN IN
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
+              > */}
+              <Animated.View style={styles.button}>
+                <Text
+                  style={{ fontSize: 20, fontWeight: "bold" }}
+                  onPress={this.logIn}
+                >
+                  SIGN IN
+                </Text>
+              </Animated.View>
+              {/* </TapGestureHandler> */}
             </Animated.View>
           </View>
         </View>
