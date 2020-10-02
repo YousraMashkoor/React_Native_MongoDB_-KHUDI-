@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Login from '../screens/login';
 import Forgot from '../screens/forgot';
 import Signin from '../screens/signin';
+import Chat from '../screens/chat';
 import Explore from '../screens/explore';
 import sellerForm from '../screens/sellerForm';
 import successfulSignin from '../component/successfulSignin';
@@ -38,7 +39,7 @@ const Tab = createBottomTabNavigator();
                     <Icon name="ios-person" color={tintColor} size={24} />),
                 }}
             />
-            <Tab.Screen name="Chat" component={loading} 
+            <Tab.Screen name="Chat" component={Chat} 
             options={{
                 tabBarLabel: 'CHAT',
                 tabBarIcon: ({ tintColor }) => (
