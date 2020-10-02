@@ -97,7 +97,7 @@ class SellerSignin extends Component{
                     </View>
 
                 
-                        <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('successfulSignin')}>
+                        <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('faceDetect')}>
                             <Animated.View style={styles.button}>
                             <Text  style={{fontSize:20,fontWeight:'bold', color:'white'}}>VERIFY</Text>
                             </Animated.View>

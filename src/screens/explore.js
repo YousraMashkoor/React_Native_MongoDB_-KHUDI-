@@ -11,7 +11,8 @@ import {
     ScrollView,
     Image,
     Dimensions,
-    Animated
+    Animated,
+    TouchableOpacity
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons'
 import Category from '../component/Explore/category'
@@ -142,24 +143,33 @@ class Explore extends Component {
                                 Available Baked goods
                             </Text>
                             <View style={{ paddingHorizontal: 20, marginTop: 20, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                            <Baking width={width}
-                                    name="Cookie Dow Cake"
-                                    type="CUSTOMIZED - Flavoured frostings - 2 layer"
-                                    price={500}
-                                    rating={4}
-                                />
-                                <Baking width={width}
-                                   name="Cookie Dow Cake"
-                                   type="CUSTOMIZED - Flavoured frostings - 2 layer"
-                                   price={500}
-                                   rating={4}
-                                />
-                                <Baking width={width}
-                                    name="Cookie Dow Cake"
-                                    type="CUSTOMIZED - Flavoured frostings - 2 layer"
-                                    price={500}
-                                    rating={4}
-                                />
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('loading')}>
+                                    <Baking 
+                                        width={width}
+                                        name="Cookie Dow Cake"
+                                        type="CUSTOMIZED - Flavoured frostings - 2 layer"
+                                        price={500}
+                                        rating={4}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('loading')}>
+                                    <Baking 
+                                        width={width}
+                                        name="Cookie Dow Cake"
+                                        type="CUSTOMIZED - Flavoured frostings - 2 layer"
+                                        price={500}
+                                        rating={4}
+                                    />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('loading')}>
+                                    <Baking 
+                                        width={width}
+                                        name="Cookie Dow Cake"
+                                        type="CUSTOMIZED - Flavoured frostings - 2 layer"
+                                        price={500}
+                                        rating={4}
+                                    />
+                                </TouchableOpacity>
 
 
                             </View>

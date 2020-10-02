@@ -11,9 +11,11 @@ import Forgot from '../screens/forgot';
 import Signin from '../screens/signin';
 import Explore from '../screens/explore';
 import sellerForm from '../screens/sellerForm';
+import messenger from '../screens/Messenger/index';
 import successfulSignin from '../component/successfulSignin';
 import becomeSeller from '../component/becomeSeller';
 import loading from '../component/loading';
+import faceDetect from '../screens/faceDetect';
 
 
 const Stack = createStackNavigator();
@@ -38,7 +40,7 @@ const Tab = createBottomTabNavigator();
                     <Icon name="ios-person" color={tintColor} size={24} />),
                 }}
             />
-            <Tab.Screen name="Chat" component={loading} 
+            <Tab.Screen name="Chat" component={messenger} 
             options={{
                 tabBarLabel: 'CHAT',
                 tabBarIcon: ({ tintColor }) => (
@@ -65,6 +67,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="becomeSeller" component={becomeSeller} />
                     <Stack.Screen options={{headerShown: false}} name="Explore" component={MyTabs} />
                     <Stack.Screen options={{headerTitle:'KHUDI Seller'}} name="sellerForm" component={sellerForm} />
+                    <Stack.Screen options={{headerShown: false}} name="faceDetect" component={faceDetect} />
                 </Stack.Navigator>
             </NavigationContainer>
         )
