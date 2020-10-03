@@ -142,23 +142,40 @@ class Explore extends Component {
                                 Available Baked goods
                             </Text>
                             <View style={{ paddingHorizontal: 20, marginTop: 20, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                            <Baking width={width}
+                                <Baking 
+                                    width={width}
+                                    navigation={this.props.navigation}
                                     name="Cookie Dow Cake"
                                     type="CUSTOMIZED - Flavoured frostings - 2 layer"
                                     price={500}
                                     rating={4}
+                                    img={require('./../../assets/baking.jpg')}
+                                    category="baking"
+                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 />
-                                <Baking width={width}
-                                   name="Cookie Dow Cake"
-                                   type="CUSTOMIZED - Flavoured frostings - 2 layer"
-                                   price={500}
-                                   rating={4}
-                                />
-                                <Baking width={width}
+                                <Baking 
+                                    width={width}
+                                    navigation={this.props.navigation}
                                     name="Cookie Dow Cake"
                                     type="CUSTOMIZED - Flavoured frostings - 2 layer"
                                     price={500}
                                     rating={4}
+                                    img={require('./../../assets/baking.jpg')}
+                                    category="baking"
+                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                
+                                />
+                                <Baking 
+                                    width={width}
+                                    navigation={this.props.navigation}
+                                    name="Cookie Dow Cake"
+                                    type="CUSTOMIZED - Flavoured frostings - 2 layer"
+                                    price={500}
+                                    rating={4}
+                                    img={require('./../../assets/baking.jpg')}
+                                    category="baking"
+                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                
                                 />
 
 

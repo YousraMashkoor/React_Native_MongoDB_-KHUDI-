@@ -1,8 +1,8 @@
-import React,{Component, useState } from 'react';
-import { View, Text, Dimensions, TextInput, Alert, Keyboard, KeyboardAvoidingView, StyleSheet} from 'react-native';
+import React,{Component} from 'react';
+import { View, Text, Dimensions, TextInput, KeyboardAvoidingView, StyleSheet} from 'react-native';
 import { RadioButton} from 'react-native-paper';
-import {TapGestureHandler, State} from 'react-native-gesture-handler'
-import Animated,{Easing} from 'react-native-reanimated'
+import {TapGestureHandler} from 'react-native-gesture-handler'
+import Animated from 'react-native-reanimated'
 
 // import 'react-phone-number-input/style.css';
 // import PhoneInput from 'react-phone-number-input';

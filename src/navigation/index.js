@@ -11,6 +11,7 @@ import Forgot from '../screens/forgot';
 import Signin from '../screens/signin';
 import Profile from '../screens/profile';
 import Postview from '../screens/postView';
+import Article from '../screens/dummy';
 import Chat from '../screens/chat';
 import Explore from '../screens/explore';
 import sellerForm from '../screens/sellerForm';
@@ -68,7 +69,8 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="becomeSeller" component={becomeSeller} />
                     <Stack.Screen options={{headerShown: false}} name="Explore" component={MyTabs} />
                     <Stack.Screen options={{headerTitle:'KHUDI Seller'}} name="sellerForm" component={sellerForm} />
-                    <Stack.Screen options={{headerTitle:'post'}} name="postview" component={Postview} />
+                    <Stack.Screen options={{headerShown: false}} name="postview" component={Postview} />
+                    <Stack.Screen options={{headerTitle:'post'}} name="article" component={Article} />
                 </Stack.Navigator>
             </NavigationContainer>
         )
