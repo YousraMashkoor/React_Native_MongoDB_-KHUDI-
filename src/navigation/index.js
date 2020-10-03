@@ -18,6 +18,7 @@ import sellerForm from '../screens/sellerForm';
 import successfulSignin from '../component/successfulSignin';
 import becomeSeller from '../component/becomeSeller';
 import loading from '../component/loading';
+import faceDetect from '../screens/faceDetect';
 
 
 const Stack = createStackNavigator();
@@ -71,6 +72,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerTitle:'KHUDI Seller'}} name="sellerForm" component={sellerForm} />
                     <Stack.Screen options={{headerShown: false}} name="postview" component={Postview} />
                     <Stack.Screen options={{headerTitle:'post'}} name="article" component={Article} />
+                    <Stack.Screen options={{headerShown: false}} name="faceDetect" component={faceDetect} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

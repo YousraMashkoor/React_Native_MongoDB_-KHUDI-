@@ -11,7 +11,8 @@ import {
     ScrollView,
     Image,
     Dimensions,
-    Animated
+    Animated,
+    TouchableOpacity
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons'
 import Category from '../component/Explore/category'
