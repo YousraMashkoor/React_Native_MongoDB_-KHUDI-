@@ -9,6 +9,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Login from '../screens/login';
 import Forgot from '../screens/forgot';
 import Signin from '../screens/signin';
+import Profile from '../screens/profile';
+import Postview from '../screens/postView';
 import Chat from '../screens/chat';
 import Explore from '../screens/explore';
 import sellerForm from '../screens/sellerForm';
@@ -32,7 +34,7 @@ const Tab = createBottomTabNavigator();
                     <Icon name="ios-search" color={tintColor} size={24} />),
                 }}
             />
-            <Tab.Screen name="Profile" component={loading} 
+            <Tab.Screen name="Profile" component={Profile} 
             options={{
                 tabBarLabel: 'PROFILE',
                 tabBarIcon: ({ tintColor }) => (
@@ -66,6 +68,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="becomeSeller" component={becomeSeller} />
                     <Stack.Screen options={{headerShown: false}} name="Explore" component={MyTabs} />
                     <Stack.Screen options={{headerTitle:'KHUDI Seller'}} name="sellerForm" component={sellerForm} />
+                    <Stack.Screen options={{headerTitle:'post'}} name="postview" component={Postview} />
                 </Stack.Navigator>
             </NavigationContainer>
         )
