@@ -8,6 +8,9 @@ import Axios from "./axios";
 
 import Navigation from "./src/navigation/index";
 
+import { YellowBox } from "react-native";
+YellowBox.ignoreWarnings(["Remote debugger"]);
+
 function cacheImages(images) {
   return images.map((image) => {
     if (typeof image === "string") {

@@ -12,6 +12,8 @@ import Animated, { Easing } from "react-native-reanimated";
 import { TapGestureHandler, State } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get("window");
 
+import Axios from "../../axios";
+
 const {
   Value,
   event,
@@ -62,6 +64,11 @@ function runTiming(clock, value, dest) {
 class Login extends Component {
   constructor() {
     super();
+    this.state = {
+      email: "",
+      password: "",
+      errors: "",
+    };
 
     this.buttonOpacity = new Value(1);
     this.OnStateChange = event([
@@ -123,7 +130,46 @@ class Login extends Component {
       extrapolate: Extrapolate.CLAMP,
     });
   }
+  //********************************LOGIN*************************************** */
+  onChangeText = (key, val) => {
+    this.setState({ [key]: val });
+  };
+  logIn = async () => {
+    const { email, password } = this.state;
+    console.log("this.state.email: ", this.state.email);
+    console.log("this.state.password: ", this.state.password);
+    console.log("Login");
+    try {
+      let response = await Axios.post("/api/users/login", {
+        email: this.state.email,
+        password: this.state.password,
+      });
+      this.props.navigation.navigate("Explore");
+      console.log("Response: ", response.data);
+    } catch (err) {
+      console.log("Error: ", err.response.data);
+      // console.warn("Error: ", err.response.data);
+      this.setState({ errors: err.response.data });
+    }
+    console.log("In the end of LOGIN");
+  };
+
+  // componentDidMount() {
+  //   this.getApiData();
+  // }
+
+  // async getApiData() {
+  //   let response = await Axios.post("/login");
+  //   console.log("RESPONSE: ", response);
+  //   // console.warn(response.data);
+  //   this.setState({ data: response.data });
+  // }
+
+  //*********************************************************************** */
+
   render() {
+    const { errors } = this.state;
+
     return (
       <KeyboardAvoidingView
         style={{
@@ -174,6 +220,7 @@ class Login extends Component {
                 </Text>
               </Animated.View>
             </TapGestureHandler>
+
             <TapGestureHandler
               onHandlerStateChange={() =>
                 this.props.navigation.navigate("Signin")
@@ -222,17 +269,50 @@ class Login extends Component {
                 </Animated.View>
               </TapGestureHandler>
 
+              {/* ******************************************************************** */}
+              {/* <View style={{ flex: 1, margin: 70 }}>
+                {this.state.data.length > 0 ? (
+                  <View>
+                    {this.state.data.map((item) => (
+                      <Text style={{ fontSize: 40 }}>{item.text}</Text>
+                    ))}
+                  </View>
+                ) : (
+                  <Text>Data is loading...</Text>
+                )}
+              </View> */}
+              {/* ******************************************************************** */}
+
               <TextInput
                 placeholder="EMAIL"
                 style={styles.textInput}
                 placeholderTextColor="black"
+                // onChangeText={this.onChangeEmail}
+                onChangeText={(val) => this.onChangeText("email", val)}
               />
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "red",
+                }}
+              >
+                {errors.email}
+              </Text>
               <TextInput
                 placeholder="PASSWORD"
                 style={styles.textInput}
                 placeholderTextColor="black"
                 secureTextEntry
+                onChangeText={(val) => this.onChangeText("password", val)}
               />
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "red",
+                }}
+              >
+                {errors.password}
+              </Text>
               <Text
                 onPress={() => this.props.navigation.navigate("Forgot")}
                 style={{
@@ -244,17 +324,20 @@ class Login extends Component {
                 Forgot your password?
               </Text>
 
-              <TapGestureHandler
+              {/* <TapGestureHandler
                 onHandlerStateChange={() =>
-                  this.props.navigation.navigate("Explore")
+                  this.props.navigation.navigate("Signin")
                 }
-              >
-                <Animated.View style={styles.button}>
-                  <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                    SIGN IN
-                  </Text>
-                </Animated.View>
-              </TapGestureHandler>
+              > */}
+              <Animated.View style={styles.button}>
+                <Text
+                  style={{ fontSize: 20, fontWeight: "bold" }}
+                  onPress={this.logIn}
+                >
+                  SIGN IN
+                </Text>
+              </Animated.View>
+              {/* </TapGestureHandler> */}
             </Animated.View>
           </View>
         </View>
