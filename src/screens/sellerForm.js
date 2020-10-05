@@ -42,7 +42,7 @@ class SellerSignin extends Component{
         const setChecked = checked => this.setState({ checked });
         const setCategory = category => this.setState({ category });
        
-        // for strat date
+        // **********************for OCUPATION strat date
 
         const onPressButtonStart = () => {
             this.setState({startdatevisibility:true})
@@ -56,7 +56,7 @@ class SellerSignin extends Component{
          this.setState({startDateDisplay:date.toUTCString()})
         };
 
-        // for end date
+        // ************************for OCUPATION end date
         const onPressButtonEnd = () => {
             this.setState({enddatevisibility:true})
         };
@@ -69,14 +69,71 @@ class SellerSignin extends Component{
          this.setState({endDateDisplay:date.toUTCString()})
         };
 
+        //********************* for OCUPATION current */
         const { checked1 } = this.state;
         const setChecked1 = checked1 => this.setState({ checked1 });
 
-        // // for toggle button
-        // const toggleSwitch = (value) => {
-        //     this.setState({isEnabled:!value})
-        //    };
-   ;
+        // **********************for EDUCATON strat date
+
+        const onPressButtonStartEdu = () => {
+            this.setState({startedudatevisibility:true})
+        };
+       
+        const onPressCancelStartEdu = () => {
+            this.setState({startedudatevisibility:false})
+        };
+       
+        const handleConfirmStartEdu = (date) => {
+         this.setState({starteduDateDisplay:date.toUTCString()})
+        };
+
+        // ************************for EDUCATION end date
+        const onPressButtonEndEdu = () => {
+            this.setState({endedudatevisibility:true})
+        };
+       
+        const onPressCancelEndEdu = () => {
+            this.setState({endedudatevisibility:false})
+        };
+       
+        const handleConfirmEndEdu = (date) => {
+         this.setState({endeduDateDisplay:date.toUTCString()})
+        };
+
+        //********************* for EDUCATION current */
+        const { checked2 } = this.state;
+        const setChecked2 = checked2 => this.setState({ checked2 });
+
+        // **********************for CERTIFICATE strat date
+
+        const onPressButtonStartCert = () => {
+            this.setState({startcertdatevisibility:true})
+        };
+       
+        const onPressCancelStartCert = () => {
+            this.setState({startcertdatevisibility:false})
+        };
+       
+        const handleConfirmStartCert = (date) => {
+         this.setState({startcertDateDisplay:date.toUTCString()})
+        };
+
+        // ************************for CERIFICATE end date
+        const onPressButtonEndCert = () => {
+            this.setState({endcertdatevisibility:true})
+        };
+       
+        const onPressCancelEndCert = () => {
+            this.setState({endcertdatevisibility:false})
+        };
+       
+        const handleConfirmEndCert = (date) => {
+         this.setState({endcertDateDisplay:date.toUTCString()})
+        };
+
+        //********************* for CERTIFICATE current */
+        const { checked3 } = this.state;
+        const setChecked3 = checked3 => this.setState({ checked3 });
 
         return(
             <View style={{backgroundColor:"#FFF",height:"100%", justifyContent:'flex-start',flex:1}}> 
@@ -111,12 +168,41 @@ class SellerSignin extends Component{
                             multiline={true}
                         />
                         <TextInput
+                            keyboardType='number-pad'
+                            placeholder="AGE"
+                            style={[styles.textInput]}
+                            placeholderTextColor='black'
+                            autoCompleteType='cc-number'
+                        />
+                        <TextInput
                             placeholder="LANGUAGE"
                             style={[styles.textInput]}
                             placeholderTextColor='black'
                             autoCompleteType='off'
                             maxLength={11}
                         />
+
+                        <TextInput
+                            placeholder="SKILLS"
+                            style={[styles.textInput]}
+                            placeholderTextColor='black'
+                            autoCompleteType='off'
+                            maxLength={11}
+                        />
+
+
+                         <TextInput
+                            placeholder="ABOUT ME"
+                            style={[styles.textArea]}
+                            placeholderTextColor='black'
+                            autoCompleteType='street-address'
+                            multiline={true}
+                        />
+
+                        <Text style ={{marginHorizontal:30, alignItems:'center', marginVertical:10, fontSize:15, color:"#00adf2"}}>Please note that the rest of the credentials are not mendarory but recommended!</Text>
+                        <Text style ={{marginHorizontal:30, alignItems:'center', marginVertical:3, fontSize:15, color:"#00adf2"}}>This will help feature you as our recommended seller in the future.</Text>
+                        <Text style ={{marginHorizontal:30, textAlign:'center', marginVertical:3, fontSize:15, color:"#00adf2"}}>Happy Selleing:)</Text>
+                        <View style={{backgroundColor:'black', height:10,marginBottom:10}}></View>
                         <Text style={{marginLeft:20,color:theme.colors.lightblue}}>Occupation</Text>
                         <TextInput
                             placeholder="TITLE"
@@ -149,7 +235,7 @@ class SellerSignin extends Component{
                                 onCancel={onPressCancelStart}
                             /> 
 
-                            <Button style={{color:'black' }} title="START DATE" onPress={onPressButtonEnd} />
+                            <Button style={{color:'black' }} title="END DATE" onPress={onPressButtonEnd} />
                             <Text style={{marginLeft:30, fontSize:15}}>{this.state.endDateDisplay}</Text>
                             <DateTimePickerModal
                                 isVisible={this.state.enddatevisibility}
@@ -158,7 +244,7 @@ class SellerSignin extends Component{
                                 onCancel={onPressCancelEnd}
                             /> 
 
-                            <Text style ={{marginLeft:30}}>CURRENTLY WORKING HERE: </Text>
+                            <Text style ={{marginLeft:30, marginTop:10}}>CURRENTLY WORKING HERE: </Text>
                             <RadioButton.Group
                                 onValueChange={checked1 => setChecked1(checked1)} value={checked1}
                             >
@@ -173,6 +259,173 @@ class SellerSignin extends Component{
                                     value="no"
                                     color='#1F2833' />
                             </RadioButton.Group>
+
+
+                            <View style={{ backgroundColor: 'black', height: 10, marginBottom: 10 }}></View>
+                            <Text style={{ marginLeft: 20, color: theme.colors.lightblue }}>Education</Text>
+                            <TextInput
+                                placeholder="SCHOOL"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+                            <TextInput
+                                placeholder="DEGREE"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+
+                            <TextInput
+                                placeholder="FIELD OF STUDY"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+
+                            <Button style={{color:'black' }} title="START DATE" onPress={onPressButtonStartEdu} />
+                            <Text style={{marginLeft:30, fontSize:15}}>{this.state.starteduDateDisplay}</Text>
+                            <DateTimePickerModal
+                                isVisible={this.state.startedudatevisibility}
+                                mode="date"
+                                onConfirm={handleConfirmStartEdu}
+                                onCancel={onPressCancelStartEdu}
+                            /> 
+
+                            <Button style={{color:'black' }} title="END DATE" onPress={onPressButtonEndEdu} />
+                            <Text style={{marginLeft:30, fontSize:15}}>{this.state.endeduDateDisplay}</Text>
+                            <DateTimePickerModal
+                                isVisible={this.state.endedudatevisibility}
+                                mode="date"
+                                onConfirm={handleConfirmEndEdu}
+                                onCancel={onPressCancelEndEdu}
+                            /> 
+
+                            <Text style ={{marginLeft:30,marginTop:10}}>CURRENTLY ENROLLED HERE: </Text>
+                            <RadioButton.Group
+                                onValueChange={checked2 => setChecked2(checked2)} value={checked2}
+                            >
+                                <RadioButton.Item
+                                    style={styles.radio}
+                                    label="Yes"
+                                    value="yes"
+                                    color='#1F2833' />
+                                <RadioButton.Item
+                                    style={styles.radio}
+                                    label="No"
+                                    value="no"
+                                    color='#1F2833' />
+                            </RadioButton.Group>
+
+                            <View style={{ backgroundColor: 'black', height: 10, marginBottom: 10 }}></View>
+                            <Text style={{ marginLeft: 20, color: theme.colors.lightblue }}>Certificate</Text>
+                            <TextInput
+                                placeholder="INSTITUDE"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+                            <TextInput
+                                placeholder="TITLE"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+
+
+                            <Button style={{color:'black' }} title="START DATE" onPress={onPressButtonStartCert} />
+                            <Text style={{marginLeft:30, fontSize:15}}>{this.state.startcertDateDisplay}</Text>
+                            <DateTimePickerModal
+                                isVisible={this.state.startcertdatevisibility}
+                                mode="date"
+                                onConfirm={handleConfirmStartCert}
+                                onCancel={onPressCancelStartCert}
+                            /> 
+
+                            <Button style={{color:'black' }} title="END DATE" onPress={onPressButtonEndCert} />
+                            <Text style={{marginLeft:30, fontSize:15}}>{this.state.endcertDateDisplay}</Text>
+                            <DateTimePickerModal
+                                isVisible={this.state.endcertdatevisibility}
+                                mode="date"
+                                onConfirm={handleConfirmEndCert}
+                                onCancel={onPressCancelEndCert}
+                            /> 
+
+                            <Text style ={{marginLeft:30,marginTop:10}}>IN PROGRESS: </Text>
+                            <RadioButton.Group
+                                onValueChange={checked3 => setChecked3(checked3)} value={checked3}
+                            >
+                                <RadioButton.Item
+                                    style={styles.radio}
+                                    label="Yes"
+                                    value="yes"
+                                    color='#1F2833' />
+                                <RadioButton.Item
+                                    style={styles.radio}
+                                    label="No"
+                                    value="no"
+                                    color='#1F2833' />
+                            </RadioButton.Group>
+
+
+                            <View style={{ backgroundColor: 'black', height: 10, marginBottom: 10 }}></View>
+                            <Text style={{ marginLeft: 20, color: theme.colors.lightblue }}>SOCIAL MEDIA</Text>
+                            <TextInput
+                                placeholder="WEBSITE"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+                            <TextInput
+                                placeholder="FACEBOOK"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+                            <TextInput
+                                placeholder="INSTAGRAM"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+
+                            <TextInput
+                                placeholder="YOUTUBE"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+                            <TextInput
+                                placeholder="LINKEDIN"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+                            <TextInput
+                                placeholder="GITHUB"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
+
+                            <TextInput
+                                placeholder="TWITTER"
+                                style={[styles.textInput]}
+                                placeholderTextColor='black'
+                                autoCompleteType='off'
+                                maxLength={11}
+                            />
                             {/* <Switch 
                                 trackColor={{ false: "#767577", true: "#81b0ff" }}
                                 thumbColor={this.state.isEnabled ? "#f5dd4b" : "#f4f3f4"}
@@ -208,7 +461,8 @@ class SellerSignin extends Component{
 
 
                         <View style={{backgroundColor:'black', height:10,marginBottom:10}}></View>
-                        <Text style={{marginLeft:20}}>Service Info</Text>
+                        <Text style={{ marginLeft: 20, color: theme.colors.lightblue }}>SERVICE INFO</Text>
+                        <Text style ={{marginLeft:30,marginTop:10}}>PRIMARY SERVICE: </Text>
                         <Picker
                             selectedValue={category}
                             style={[styles.textInput]}
