@@ -4,6 +4,7 @@ import {Feather} from '@expo/vector-icons'
 import StarRating from 'react-native-star-rating'
 
 import * as theme from '../theme';
+import Review from '../component/review'
 import { ScrollView } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window');
 
@@ -30,7 +31,7 @@ class postview extends Component{
                                         starSize={25}
                                         fullStarColor='orange'
                                     />
-                                </View>
+                            </View>
                         </View>
                         
                         <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{position:'absolute', left:20, top:40,
@@ -52,14 +53,28 @@ class postview extends Component{
                 <ScrollView>
                     <Text style={{fontSize:30,color:'orange',marginTop:40,marginHorizontal:20, paddingRight:40}}>{this.props.route.params.type}</Text>
                     <Text style={styles.title}>About </Text>
-                    <Text style={styles.details}>{this.props.route.params.details} </Text>
+                    <Text style={styles.details}>{this.props.route.params.details} </Text>                    
+                    <Text style={{marginHorizontal:40, color:theme.colors.blue, fontWeight:'bold', fontSize:theme.sizes.font+7, paddingVertical:5}}>{'Category: '} {this.props.route.params.category}</Text>
+                    <Text style={{marginHorizontal:40, color:theme.colors.blue, fontWeight:'bold', fontSize:theme.sizes.font+7, borderTopColor:theme.colors.lightblue , borderTopWidth: 2, paddingVertical:5}}>Price: {this.props.route.params.price}/- Pkr</Text>                   
                     <View style={styles.tag}>
-                        <Text style={{marginLeft:20, color:'white', fontWeight:'bold', fontSize:theme.sizes.font+7 , textTransform:'capitalize'}}>{'CATEGORY: '.toUpperCase()} {this.props.route.params.category}</Text>
+                        <Text style={{marginLeft:20, color:'white', fontWeight:'bold', fontSize:theme.sizes.font+7 , textTransform:'capitalize'}}>View Seller Profile</Text>
                     </View>
+                    <View style={styles.tag}>
+                        <Text style={{marginLeft:20, color:'white', fontWeight:'bold', fontSize:theme.sizes.font+7 , textTransform:'capitalize'}}>Contact Seller</Text>
+                    </View>
+                    <Text style={{marginHorizontal:40, color:theme.colors.blue, fontWeight:'bold', fontSize:theme.sizes.font+7, borderBottomColor:theme.colors.lightblue , borderBottomWidth: 2, paddingVertical:5}}>Reviews:</Text>                   
                     
-                        <Text style={{marginHorizontal:40, color:theme.colors.blue, fontWeight:'bold', fontSize:theme.sizes.font+7, borderTopColor:theme.colors.lightblue , borderTopWidth: 2, paddingVertical:5}}>Price: {this.props.route.params.price}/- Pkr</Text>
-                    
-                        
+                    <Review
+                        name="Ayesha Israr"
+                        review="Awsome service will surely buy again."
+                        rating={5}
+                    />
+                    <Review
+                        name="Huba Amir"
+                        review="Okaish service needs a bit more improvement"
+                        rating={4}
+                    />
+
                 </ScrollView>
             </View>
         )
@@ -112,7 +127,7 @@ class postview extends Component{
           borderRadius:40
       },
       tag:{
-        marginVertical:20,
+        marginVertical:5,
         marginHorizontal:20,
         backgroundColor:theme.colors.blue,
         padding: 16,
