@@ -5,13 +5,12 @@ import {
     StyleSheet,
     Image
 } from "react-native";
-import {TapGestureHandler} from 'react-native-gesture-handler'
 import { TouchableOpacity } from "react-native-gesture-handler";
 import StarRating from 'react-native-star-rating'
 class baking extends Component {
     render() {
         return (
-            <TapGestureHandler onHandlerStateChange={() => this.props.navigation.navigate('postview'
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('postview'
             ,{
                 rating: this.props.rating,
                 price:this.props.price,
@@ -21,7 +20,8 @@ class baking extends Component {
                 type:this.props.type,
                 details:this.props.details}
 
-              )}>
+            )} >
+            
             <View style={{ width: this.props.width / 2 - 30, height: this.props.width / 2 - 30, borderWidth: 0.5, borderColor: '#dddddd' }}>
                     <View style={{ flex: 1 }}>
                         <Image
@@ -41,7 +41,7 @@ class baking extends Component {
                         />
                     </View>
             </View>
-            </TapGestureHandler>
+            </TouchableOpacity>
         );
     }
 }

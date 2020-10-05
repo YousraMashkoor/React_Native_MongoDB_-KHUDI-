@@ -1,9 +1,13 @@
 import React,{Component, useState } from 'react';
-import { View, Text, Dimensions, TextInput, ScrollView, KeyboardAvoidingView, StyleSheet,Picker} from 'react-native';
+import { View, Text, Dimensions, TextInput, ScrollView, Button, KeyboardAvoidingView, StyleSheet,Switch, Picker} from 'react-native';
 import { RadioButton} from 'react-native-paper';
 import {TapGestureHandler, State} from 'react-native-gesture-handler'
+import * as theme from '../theme';
 import Animated,{Easing} from 'react-native-reanimated'
-
+// import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+import { isEnabled } from 'react-native/Libraries/Performance/Systrace';
+// import DatePicker from 'react-native-datepicker'
 // import 'react-phone-number-input/style.css';
 // import PhoneInput from 'react-phone-number-input';
 const { width, height } = Dimensions.get('window');
@@ -15,40 +19,74 @@ const { width, height } = Dimensions.get('window');
 class SellerSignin extends Component{
 
     state = {checked:'male',category:null};
+    
+    state ={
+        startdatevisibility:false,
+        startDateDisplay:"",
+        enddatevisibility:false,
+        endDateDisplay:"",
+        isEnabled: false
+    }
+
     // state = {category};
    
     constructor() {
         super();
-        // this.onPressFlag = this.onPressFlag.bind(this);
-        // this.selectCountry = this.selectCountry.bind(this);
-        // this.state = {
-        //     cell:null,
-        //   pickerData: null,
-        // };
+        // this.state = {date:"2016-05-15"}
       }
 
-    
-    //   onPressFlag() {
-    //     this.myCountryPicker.open();
-    //   }
-    
-    //   selectCountry(country) {
-    //     this.phone.selectCountry(country.iso2);
-    //   }
+
     render(){
         const { checked } = this.state;
         const { category } = this.state;
         const setChecked = checked => this.setState({ checked });
         const setCategory = category => this.setState({ category });
+       
+        // for strat date
+
+        const onPressButtonStart = () => {
+            this.setState({startdatevisibility:true})
+        };
+       
+        const onPressCancelStart = () => {
+            this.setState({startdatevisibility:false})
+        };
+       
+        const handleConfirmStart = (date) => {
+         this.setState({startDateDisplay:date.toUTCString()})
+        };
+
+        // for end date
+        const onPressButtonEnd = () => {
+            this.setState({enddatevisibility:true})
+        };
+       
+        const onPressCancelEnd = () => {
+            this.setState({enddatevisibility:false})
+        };
+       
+        const handleConfirmEnd = (date) => {
+         this.setState({endDateDisplay:date.toUTCString()})
+        };
+
+        const { checked1 } = this.state;
+        const setChecked1 = checked1 => this.setState({ checked1 });
+
+        // // for toggle button
+        // const toggleSwitch = (value) => {
+        //     this.setState({isEnabled:!value})
+        //    };
+   ;
 
         return(
-            <View style={{backgroundColor:"#FFF",height:"100%", justifyContent:'flex-start',flex:1}}>
+            <View style={{backgroundColor:"#FFF",height:"100%", justifyContent:'flex-start',flex:1}}> 
+            <ScrollView scrollEventThrottle={16}>
                 <KeyboardAvoidingView style={{ display:"flex"}}>
                     <Text style={{color:'#1F2833', fontWeight:'bold', textAlign:'center',fontSize:22, marginVertical:10}}>
                         Seller Account
                     </Text>
-                <ScrollView scrollEventThrottle={16}>
-                    <Text style={{marginLeft:20}}>Personal Info</Text>
+               
+                    <Text style={{marginLeft:20, color:theme.colors.lightblue}}>Personal Info</Text>
                     <View >
                         <TextInput
                             keyboardType='number-pad'
@@ -72,6 +110,101 @@ class SellerSignin extends Component{
                             autoCompleteType='street-address'
                             multiline={true}
                         />
+                        <TextInput
+                            placeholder="LANGUAGE"
+                            style={[styles.textInput]}
+                            placeholderTextColor='black'
+                            autoCompleteType='off'
+                            maxLength={11}
+                        />
+                        <Text style={{marginLeft:20,color:theme.colors.lightblue}}>Occupation</Text>
+                        <TextInput
+                            placeholder="TITLE"
+                            style={[styles.textInput]}
+                            placeholderTextColor='black'
+                            autoCompleteType='off'
+                            maxLength={11}
+                        />
+                        <TextInput
+                            placeholder="COMPANY"
+                            style={[styles.textInput]}
+                            placeholderTextColor='black'
+                            autoCompleteType='off'
+                            maxLength={11}
+                        />
+                        <TextInput
+                            placeholder="LOCATION"
+                            style={[styles.textInput]}
+                            placeholderTextColor='black'
+                            autoCompleteType='tel'
+                            maxLength={11}
+                            />
+
+                            <Button style={{color:'black' }} title="START DATE" onPress={onPressButtonStart} />
+                            <Text style={{marginLeft:30, fontSize:15}}>{this.state.startDateDisplay}</Text>
+                            <DateTimePickerModal
+                                isVisible={this.state.startdatevisibility}
+                                mode="date"
+                                onConfirm={handleConfirmStart}
+                                onCancel={onPressCancelStart}
+                            /> 
+
+                            <Button style={{color:'black' }} title="START DATE" onPress={onPressButtonEnd} />
+                            <Text style={{marginLeft:30, fontSize:15}}>{this.state.endDateDisplay}</Text>
+                            <DateTimePickerModal
+                                isVisible={this.state.enddatevisibility}
+                                mode="date"
+                                onConfirm={handleConfirmEnd}
+                                onCancel={onPressCancelEnd}
+                            /> 
+
+                            <Text style ={{marginLeft:30}}>CURRENTLY WORKING HERE: </Text>
+                            <RadioButton.Group
+                                onValueChange={checked1 => setChecked1(checked1)} value={checked1}
+                            >
+                                <RadioButton.Item
+                                    style={styles.radio}
+                                    label="Yes"
+                                    value="yes"
+                                    color='#1F2833' />
+                                <RadioButton.Item
+                                    style={styles.radio}
+                                    label="No"
+                                    value="no"
+                                    color='#1F2833' />
+                            </RadioButton.Group>
+                            {/* <Switch 
+                                trackColor={{ false: "#767577", true: "#81b0ff" }}
+                                thumbColor={this.state.isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                                ios_backgroundColor="#3e3e3e"
+                                onValueChange={toggleSwitch}
+                                value={this.state.isEnabled}
+                            /> */}
+                            {/* <DatePicker
+                                style={{ width: 200 }}
+                                date={this.state.date}
+                                mode="date"
+                                placeholder="select date"
+                                format="YYYY-MM-DD"
+                                minDate="2012-05-01"
+                                maxDate="2030-06-01"
+                                confirmBtnText="Confirm"
+                                cancelBtnText="Cancel"
+                                customStyles={{
+                                    dateIcon: {
+                                        position: 'absolute',
+                                        left: 0,
+                                        top: 4,
+                                        marginLeft: 0
+                                    },
+                                    dateInput: {
+                                        marginLeft: 36
+                                    }
+                                    // ... You can check the source to find the other keys.
+                                }}
+                                onDateChange={(date) => { this.setState({ date: date }) }}
+                                
+                            /> */}
 
 
                         <View style={{backgroundColor:'black', height:10,marginBottom:10}}></View>
@@ -102,8 +235,9 @@ class SellerSignin extends Component{
                             <Text  style={{fontSize:20,fontWeight:'bold', color:'white'}}>VERIFY</Text>
                             </Animated.View>
                         </TapGestureHandler>
-                    </ScrollView>
+                    
                 </KeyboardAvoidingView>
+                </ScrollView>
             </View>
 
         )
@@ -136,6 +270,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
       },
       radio:{
+          marginLeft:30,
         marginRight:width/2,
         height:50,
         borderRadius:25,

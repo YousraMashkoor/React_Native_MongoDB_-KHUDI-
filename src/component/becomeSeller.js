@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { View, Text, Dimensions, Image, TextInput, Alert, Keyboard, KeyboardAvoidingView, StyleSheet} from 'react-native';
+import { View, Text, Dimensions, Image, TouchableOpacity, TextInput, Alert, Keyboard, KeyboardAvoidingView, StyleSheet} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {TapGestureHandler, State} from 'react-native-gesture-handler'
 

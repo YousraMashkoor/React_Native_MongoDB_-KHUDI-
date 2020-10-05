@@ -57,6 +57,10 @@ class Explore extends Component {
 
     }
 
+    goToBaking = () => {
+        this.scroll.scrollTo({x: height, y: height, animated: true});
+     }
+
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -88,6 +92,7 @@ class Explore extends Component {
                         </Animated.View>
                     </Animated.View>
                     <ScrollView
+                    
                         scrollEventThrottle={16}
                         onScroll={Animated.event(
                             [
@@ -96,6 +101,7 @@ class Explore extends Component {
                             ],
                             {useNativeDriver: false}
                         )}
+                        ref={(c) => {this.scroll = c}}
                     >
                         <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
                             <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20 }}>
@@ -107,9 +113,12 @@ class Explore extends Component {
                                     horizontal={true}
                                     showsHorizontalScrollIndicator={false}
                                 >
-                                    <Category imageUri={require('./../../assets/baking.jpg')}
-                                        name="Baking"
-                                    />
+                                    <TouchableOpacity onPress={this.goToBaking}>
+                                        <Category imageUri={require('./../../assets/baking.jpg')}
+                                            name="Baking"
+                                        />
+                                    </TouchableOpacity>
+
                                     <Category imageUri={require('./../../assets/stitching.jpg')}
                                         name="Stitching"
                                     />
