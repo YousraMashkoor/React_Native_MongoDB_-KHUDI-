@@ -73,6 +73,8 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="postview" component={Postview} />
                     <Stack.Screen options={{headerTitle:'post'}} name="article" component={Article} />
                     <Stack.Screen options={{headerShown: false}} name="faceDetect" component={faceDetect} />
+                    <Stack.Screen options={{headerShown: false}} name="chat" component={Chat} />
+                    <Stack.Screen options={{headerShown: false}} name="profile" component={Profile} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

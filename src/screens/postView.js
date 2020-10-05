@@ -56,12 +56,12 @@ class postview extends Component{
                     <Text style={styles.details}>{this.props.route.params.details} </Text>                    
                     <Text style={{marginHorizontal:40, color:theme.colors.blue, fontWeight:'bold', fontSize:theme.sizes.font+7, paddingVertical:5}}>{'Category: '} {this.props.route.params.category}</Text>
                     <Text style={{marginHorizontal:40, color:theme.colors.blue, fontWeight:'bold', fontSize:theme.sizes.font+7, borderTopColor:theme.colors.lightblue , borderTopWidth: 2, paddingVertical:5}}>Price: {this.props.route.params.price}/- Pkr</Text>                   
-                    <View style={styles.tag}>
+                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('profile')} style={styles.tag}>
                         <Text style={{marginLeft:20, color:'white', fontWeight:'bold', fontSize:theme.sizes.font+7 , textTransform:'capitalize'}}>View Seller Profile</Text>
-                    </View>
-                    <View style={styles.tag}>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('chat')} style={styles.tag}>
                         <Text style={{marginLeft:20, color:'white', fontWeight:'bold', fontSize:theme.sizes.font+7 , textTransform:'capitalize'}}>Contact Seller</Text>
-                    </View>
+                    </TouchableOpacity>
                     <Text style={{marginHorizontal:40, color:theme.colors.blue, fontWeight:'bold', fontSize:theme.sizes.font+7, borderBottomColor:theme.colors.lightblue , borderBottomWidth: 2, paddingVertical:5}}>Reviews:</Text>                   
                     
                     <Review
