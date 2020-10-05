@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import StarRating from 'react-native-star-rating'
-class baking extends Component {
+class card extends Component {
     render() {
         return (
             <TouchableOpacity onPress={() => this.props.navigation.navigate('postview'
@@ -45,7 +45,7 @@ class baking extends Component {
         );
     }
 }
-export default baking;
+export default card;
 
 const styles = StyleSheet.create({
     container: {

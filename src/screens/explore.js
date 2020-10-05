@@ -16,7 +16,7 @@ import {
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons'
 import Category from '../component/Explore/category'
-import Baking from '../component/Explore/baking'
+import Card from '../component/Explore/card'
 import Tag from '../component/Explore/tags'
 const { height, width } = Dimensions.get('window')
 class Explore extends Component {
@@ -152,7 +152,7 @@ class Explore extends Component {
                                 Available Baked goods
                             </Text>
                             <View style={{ paddingHorizontal: 20, marginTop: 20, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                                <Baking 
+                                <Card 
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Cookie Dow Cake"
@@ -163,7 +163,7 @@ class Explore extends Component {
                                     category="baking"
                                     details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 />
-                                <Baking 
+                                <Card 
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Cheesy Garlic Bread"
@@ -175,7 +175,7 @@ class Explore extends Component {
                                     details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
-                                <Baking 
+                                <Card
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Red Velvet Cake"
@@ -187,7 +187,7 @@ class Explore extends Component {
                                     details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
-                                <Baking 
+                                <Card
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Veggie Pizza"
