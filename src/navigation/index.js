@@ -10,12 +10,15 @@ import Login from '../screens/login';
 import Forgot from '../screens/forgot';
 import Signin from '../screens/signin';
 import Profile from '../screens/profile';
+import sellerProfile from '../screens/sellerProfile';
 import Postview from '../screens/postView';
 import Article from '../screens/dummy';
 import Chat from '../screens/chat';
 import Explore from '../screens/explore';
 import sellerForm from '../screens/sellerForm';
 import editProfile from '../screens/editProfile';
+import editSellerProfile from '../screens/editSellerProfile';
+import profileSetting from '../screens/profileSetting';
 import successfulSignin from '../component/successfulSignin';
 import becomeSeller from '../component/becomeSeller';
 import loading from '../component/loading';
@@ -54,6 +57,27 @@ const Tab = createBottomTabNavigator();
           </Tab.Navigator>
         );
       }
+    function MyTabs2() 
+    {
+        return (
+          <Tab.Navigator>
+            <Tab.Screen name="Profile2" component={sellerProfile} 
+            options={{
+                tabBarLabel: 'PROFILE',
+                tabBarIcon: ({ tintColor }) => (
+                    <Icon name="ios-person" color={tintColor} size={24} />),
+                }}
+            />
+            <Tab.Screen name="Chat2" component={Chat} 
+            options={{
+                tabBarLabel: 'CHAT',
+                tabBarIcon: ({ tintColor }) => (
+                    <Icon name="ios-chatboxes" color={tintColor} size={24} />),
+                }}
+            />
+          </Tab.Navigator>
+        );
+      }
 
 class Navigation extends Component{
 
@@ -70,6 +94,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="loading" component={loading} />
                     <Stack.Screen options={{headerShown: false}} name="becomeSeller" component={becomeSeller} />
                     <Stack.Screen options={{headerShown: false}} name="Explore" component={MyTabs} />
+                    <Stack.Screen options={{headerShown: false}} name="SellerMode" component={MyTabs2} />
                     <Stack.Screen options={{headerTitle:'KHUDI Seller'}} name="sellerForm" component={sellerForm} />
                     <Stack.Screen options={{headerShown: false}} name="postview" component={Postview} />
                     <Stack.Screen options={{headerTitle:'post'}} name="article" component={Article} />
@@ -77,6 +102,8 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="chat" component={Chat} />
                     <Stack.Screen options={{headerShown: false}} name="profile" component={Profile} />
                     <Stack.Screen options={{headerShown: false}} name="editProfile" component={editProfile} />
+                    <Stack.Screen options={{headerShown: false}} name="editSellerProfile" component={editSellerProfile} />
+                    <Stack.Screen options={{headerShown: false}} name="profileSetting" component={profileSetting} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

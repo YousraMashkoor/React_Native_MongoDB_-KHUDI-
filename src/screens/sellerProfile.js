@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {View, SafeAreaView, StyleSheet} from 'react-native';
+import {View, SafeAreaView, StyleSheet,ScrollView} from 'react-native';
 import {
   Avatar,
   Title,
@@ -15,18 +15,18 @@ import { Switch } from 'react-native-paper';
 
 // import files from '../assets/filesBase64';
 
-class profile extends Component {
+class sellerProfile extends Component {
 
   constructor(props) { 
     super(props); 
     this.state = {
-      sellerMode: false
+      sellerMode: true
      }
   }
   switch = (value) => {
     this.setState({ sellerMode: value });
     this.state.sellerMode ? this.props.navigation.navigate('Explore'): this.props.navigation.navigate('SellerMode');
-    this.setState({ sellerMode: false });
+    this.setState({ sellerMode: true });
 
   }
 
@@ -54,33 +54,50 @@ render(){
           </View>
         </View>
       </View>
-
+        <ScrollView>
       <View style={styles.userInfoSection}>
         <View style={styles.row}>
-          <Icon name="map-marker-radius" color="#777777" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>Kolkata, India</Text>
+          <Icon name="map-marker-radius" color="#ffff" size={20}/>
+          <Text style={{color:"#ffff", marginLeft: 20}}>Kolkata, India</Text>
         </View>
         <View style={styles.row}>
-          <Icon name="phone" color="#777777" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>+91-900000009</Text>
+          <Icon name="phone" color="#ffff" size={20}/>
+          <Text style={{color:"#ffff", marginLeft: 20}}>+91-900000009</Text>
         </View>
         <View style={styles.row}>
-          <Icon name="email" color="#777777" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>john_doe@email.com</Text>
+          <Icon name="email" color="#ffff" size={20}/>
+          <Text style={{color:"#ffff", marginLeft: 20}}>john_doe@email.com</Text>
+        </View>
+        <View style={styles.row}>
+          <Icon name="identifier" color="#ffff" size={20}/>
+          <Text style={{color:"#ffff", marginLeft: 20}}>421013736490</Text>
+        </View>
+        <View style={styles.row}>
+          <Icon name="human-male-height" color="#ffff" size={20}/>
+          <Text style={{color:"#ffff", marginLeft: 20}}>25</Text>
+        </View>
+        <View style={styles.row}>
+          <Icon name="firework" color="#ffff" size={20}/>
+          <Text style={{color:"#ffff", marginLeft: 20}}>kurti stitching, maxi design, silwar suit</Text>
+        </View>
+        <View style={styles.row}>
+          <Icon name="information" color="#ffff" size={20}/>
+          <Text style={{color:"#ffff", marginLeft: 20}}>I am an export tailor, who has worked with more than 30 client with 100% satisfaction. I can maek you complex and unique design to your liking unto simple and plan stitching. Looking forward to working with you.</Text>
         </View>
       </View>
+      
 
       <View style={styles.infoBoxWrapper}>
           <View style={[styles.infoBox, {
             borderRightColor: '#dddddd',
             borderRightWidth: 1
           }]}>
-            <Title>140 Rs</Title>
-            <Caption>Wallet</Caption>
+            <Title style={{color:'white'}}>5000 Rs</Title>
+            <Caption style={{color:'#38DFEB'}}>Wallet</Caption>
           </View>
           <View style={styles.infoBox}>
-            <Title>12</Title>
-            <Caption>Orders</Caption>
+            <Title style={{color:'white'}}>12</Title>
+            <Caption style={{color:'#38DFEB'}}>Orders</Caption>
           </View>
       </View>
 
@@ -98,7 +115,7 @@ render(){
             <Text style={styles.menuItemText}>Orders</Text>
           </View>
         </TouchableRipple>
-        <TouchableRipple onPress={() => this.props.navigation.navigate('editProfile')}>
+        <TouchableRipple onPress={() => this.props.navigation.navigate('editSellerProfile')}>
           <View style={styles.menuItem}>
             <Icon name="settings-outline" color="#38DFEB" size={25}/>
             <Text style={styles.menuItemText}>Settings</Text>
@@ -120,17 +137,19 @@ render(){
           </View>
         </TapGestureHandler>
       </View>
+      </ScrollView>
     </SafeAreaView>
   );
         }
 };
 
-export default profile;
+export default sellerProfile;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop:20,
+    backgroundColor:'#3b444b'
   },
   userInfoSection: {
     paddingHorizontal: 30,
@@ -139,11 +158,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    color:'white'
   },
   caption: {
     fontSize: 14,
     lineHeight: 14,
     fontWeight: '500',
+    color:'#38DFEB'
   },
   row: {
     flexDirection: 'row',
@@ -156,6 +177,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     flexDirection: 'row',
     height: 100,
+    
   },
   infoBox: {
     width: '50%',
@@ -171,7 +193,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   menuItemText: {
-    color: '#777777',
+    color: '#ffff',
     marginLeft: 20,
     fontWeight: '600',
     fontSize: 16,

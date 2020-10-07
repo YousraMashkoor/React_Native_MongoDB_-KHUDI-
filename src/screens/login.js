@@ -6,6 +6,7 @@ import {
   Dimensions,
   TextInput,
   KeyboardAvoidingView,
+  TouchableOpacity
 } from "react-native";
 import Svg, { Image, Circle, ClipPath } from "react-native-svg";
 import Animated, { Easing } from "react-native-reanimated";
@@ -13,6 +14,7 @@ import { TapGestureHandler, State } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get("window");
 
 import Axios from "../../axios";
+import { TouchableRipple } from "react-native-paper";
 
 const {
   Value,
@@ -324,8 +326,8 @@ class Login extends Component {
                 Forgot your password?
               </Text>
 
-              <TapGestureHandler
-                onHandlerStateChange={this.logIn}
+              <TouchableOpacity
+                onPress={this.logIn}
               >
               <Animated.View style={styles.button}>
                 <Text
@@ -335,7 +337,7 @@ class Login extends Component {
                   SIGN IN
                 </Text>
               </Animated.View>
-              </TapGestureHandler>
+              </TouchableOpacity>
             </Animated.View>
           </View>
         </View>

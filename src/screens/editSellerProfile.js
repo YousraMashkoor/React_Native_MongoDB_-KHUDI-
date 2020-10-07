@@ -20,7 +20,7 @@ import Animated from 'react-native-reanimated';
 import ImagePicker from 'react-native-image-crop-picker';
 import { TapGestureHandler } from 'react-native-gesture-handler';
 
-const editProfile = () => {
+const editSellerProfile = () => {
 
   const [image, setImage] = useState('https://api.adorable.io/avatars/80/abott@adorable.png');
   const {colors} = useTheme();
@@ -139,7 +139,7 @@ const editProfile = () => {
               </ImageBackground>
             </View>
           </TouchableOpacity>
-          <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold'}}>
+          <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold', color:"#FFFFFF"}}>
             John Doe
           </Text>
         </View>
@@ -148,7 +148,7 @@ const editProfile = () => {
           <Feather name="phone" color={colors.text} size={20} />
           <TextInput
             placeholder="Phone"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#FFFFFF"
             keyboardType="number-pad"
             autoCorrect={false}
             style={[
@@ -163,7 +163,7 @@ const editProfile = () => {
           <FontAwesome name="envelope-o" color={colors.text} size={20} />
           <TextInput
             placeholder="Email"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#FFFFFF"
             keyboardType="email-address"
             autoCorrect={false}
             style={[
@@ -178,7 +178,7 @@ const editProfile = () => {
           <FontAwesome name="globe" color={colors.text} size={20} />
           <TextInput
             placeholder="Country"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#FFFFFF"
             autoCorrect={false}
             style={[
               styles.textInput,
@@ -192,7 +192,7 @@ const editProfile = () => {
           <Icon name="city" color={colors.text} size={20} />
           <TextInput
             placeholder="City"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#FFFFFF"
             autoCorrect={false}
             style={[
               styles.textInput,
@@ -206,7 +206,7 @@ const editProfile = () => {
           <Icon name="map-marker-outline" color={colors.text} size={20} />
           <TextInput
             placeholder="Street Address"
-            placeholderTextColor="#666666"
+            placeholderTextColor="#FFFFFF"
             autoCorrect={false}
             style={[
               styles.textInput,
@@ -216,6 +216,23 @@ const editProfile = () => {
             ]}
           />
         </View>
+
+        <View style={styles.action}>
+          <Icon name="map-marker-outlinE" color={colors.text} size={20} />
+          <TextInput
+            placeholder="About me"
+            placeholderTextColor="#FFFFFF"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                height: 100,
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+
         <TouchableOpacity style={styles.button} onPress={() => {}}>
           <Text style={styles.panelButtonTitle}>Submit</Text>
         </TouchableOpacity>
@@ -224,12 +241,13 @@ const editProfile = () => {
   );
 };
 
-export default editProfile;
+export default editSellerProfile;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop:20,
+    backgroundColor:'#3b444b'
   },
   commandButton: {
     padding: 15,
@@ -242,12 +260,6 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#FFFFFF',
     paddingTop: 20,
-    // borderTopLeftRadius: 20,
-    // borderTopRightRadius: 20,
-    // shadowColor: '#000000',
-    // shadowOffset: {width: 0, height: 0},
-    // shadowRadius: 5,
-    // shadowOpacity: 0.4,
   },
   header: {
     backgroundColor: '#FFFFFF',
