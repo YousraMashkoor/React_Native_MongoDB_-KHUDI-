@@ -15,6 +15,7 @@ import Article from '../screens/dummy';
 import Chat from '../screens/chat';
 import Explore from '../screens/explore';
 import sellerForm from '../screens/sellerForm';
+import editProfile from '../screens/editProfile';
 import successfulSignin from '../component/successfulSignin';
 import becomeSeller from '../component/becomeSeller';
 import loading from '../component/loading';
@@ -75,6 +76,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="faceDetect" component={faceDetect} />
                     <Stack.Screen options={{headerShown: false}} name="chat" component={Chat} />
                     <Stack.Screen options={{headerShown: false}} name="profile" component={Profile} />
+                    <Stack.Screen options={{headerShown: false}} name="editProfile" component={editProfile} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

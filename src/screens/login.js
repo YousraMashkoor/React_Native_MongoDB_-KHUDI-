@@ -324,20 +324,18 @@ class Login extends Component {
                 Forgot your password?
               </Text>
 
-              {/* <TapGestureHandler
-                onHandlerStateChange={() =>
-                  this.props.navigation.navigate("Signin")
-                }
-              > */}
+              <TapGestureHandler
+                onHandlerStateChange={this.logIn}
+              >
               <Animated.View style={styles.button}>
                 <Text
                   style={{ fontSize: 20, fontWeight: "bold" }}
-                  onPress={this.logIn}
+                  // onPress={this.logIn}
                 >
                   SIGN IN
                 </Text>
               </Animated.View>
-              {/* </TapGestureHandler> */}
+              </TapGestureHandler>
             </Animated.View>
           </View>
         </View>

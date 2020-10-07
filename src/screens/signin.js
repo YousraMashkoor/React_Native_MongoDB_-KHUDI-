@@ -218,20 +218,18 @@ class Signin extends Component {
               />
             </RadioButton.Group>
 
-            {/* <TapGestureHandler
-            onHandlerStateChange={() =>
-              this.props.navigation.navigate("successfulSignin")
-            }
-          > */}
+            <TapGestureHandler
+            onHandlerStateChange={this.signIn}
+          >
             <Animated.View style={styles.button}>
               <Text
                 style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-                onPress={this.signIn}
+                // onPress={this.signIn}
               >
                 REGISTER
               </Text>
             </Animated.View>
-            {/* </TapGestureHandler> */}
+            </TapGestureHandler>
           </ScrollView>
         </KeyboardAvoidingView>
       </View>
