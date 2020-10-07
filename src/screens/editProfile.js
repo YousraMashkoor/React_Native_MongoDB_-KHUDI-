@@ -60,16 +60,16 @@ const editProfile = () => {
         <Text style={styles.panelTitle}>Upload Photo</Text>
         <Text style={styles.panelSubtitle}>Choose Your Profile Picture</Text>
       </View>
-      <TouchableOpacity style={styles.panelButton} onPress={takePhotoFromCamera}>
-        <Text style={styles.panelButtonTitle}>Take Photo</Text>
+      <TouchableOpacity style={styles.button} onPress={takePhotoFromCamera}>
+        <Text style={styles.panelButtonTitle} >Take Photo</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.panelButton} >
+      <TouchableOpacity style={styles.button} >
         <Text style={styles.panelButtonTitle} onPress={() => { console.log("hello");}}>Choose From Library</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.panelButton}
+      <TouchableOpacity onPress={() => bs.current.snapTo(1)}
+        style={styles.button}
         >
-        <Text style={styles.panelButtonTitle} onPress={() => bs.current.snapTo(1)}>Cancel</Text>
+        <Text style={styles.panelButtonTitle} >Cancel</Text>
       </TouchableOpacity>
     </View>
   );
@@ -88,7 +88,7 @@ const editProfile = () => {
     <View style={styles.container}>
       <BottomSheet
         ref={bs}
-        snapPoints={[330, 0]}
+        snapPoints={[400, 0]}
         renderContent={renderInner}
         renderHeader={renderHeader}
         initialSnap={1}
@@ -143,34 +143,6 @@ const editProfile = () => {
         </View>
 
         <View style={styles.action}>
-          <FontAwesome name="user-o" color={colors.text} size={20} />
-          <TextInput
-            placeholder="First Name"
-            placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <FontAwesome name="user-o" color={colors.text} size={20} />
-          <TextInput
-            placeholder="Last Name"
-            placeholderTextColor="#666666"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
           <Feather name="phone" color={colors.text} size={20} />
           <TextInput
             placeholder="Phone"
@@ -215,7 +187,7 @@ const editProfile = () => {
           />
         </View>
         <View style={styles.action}>
-          <Icon name="map-marker-outline" color={colors.text} size={20} />
+          <Icon name="city" color={colors.text} size={20} />
           <TextInput
             placeholder="City"
             placeholderTextColor="#666666"
@@ -228,7 +200,21 @@ const editProfile = () => {
             ]}
           />
         </View>
-        <TouchableOpacity style={styles.commandButton} onPress={() => {}}>
+        <View style={styles.action}>
+          <Icon name="map-marker-outline" color={colors.text} size={20} />
+          <TextInput
+            placeholder="Street Address"
+            placeholderTextColor="#666666"
+            autoCorrect={false}
+            style={[
+              styles.textInput,
+              {
+                color: colors.text,
+              },
+            ]}
+          />
+        </View>
+        <TouchableOpacity style={styles.button} onPress={() => {}}>
           <Text style={styles.panelButtonTitle}>Submit</Text>
         </TouchableOpacity>
       </Animated.View>
@@ -241,6 +227,7 @@ export default editProfile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop:20,
   },
   commandButton: {
     padding: 15,
@@ -299,9 +286,7 @@ const styles = StyleSheet.create({
     marginVertical: 7,
   },
   panelButtonTitle: {
-    fontSize: 17,
-    fontWeight: 'bold',
-    color: 'white',
+    fontSize: 20, fontWeight: 'bold', color: 'white' 
   },
   action: {
     flexDirection: 'row',
@@ -323,5 +308,18 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS === 'ios' ? 0 : -12,
     paddingLeft: 10,
     color: '#05375a',
+  },
+  button: {
+    backgroundColor: '#1F2833',
+    height: 70,
+    marginHorizontal: 20,
+    borderRadius: 35,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 5,
+    shadowOffset: { width:2,height:2},
+    shadowColor:'black',
+    shadowOpacity:0.2,
+    elevation:3
   },
 });
