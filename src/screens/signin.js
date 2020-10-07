@@ -7,6 +7,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   StyleSheet,
+  TouchableOpacity
 } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { TapGestureHandler, State } from "react-native-gesture-handler";
