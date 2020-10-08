@@ -1,11 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, AsyncStorage } from "react-native";
 
 import { Asset } from "expo-asset";
 import { AppLoading } from "expo";
 import Login from "./src/index";
 import Axios from "./axios";
-
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./src/utils/setAuthToken";
+// import { currentUser } from "./actions/authActions";
 import Navigation from "./src/navigation/index";
 
 import { YellowBox } from "react-native";
@@ -19,6 +21,13 @@ function cacheImages(images) {
       return Asset.fromModule(image).downloadAsync();
     }
   });
+}
+
+//Check for token
+if (AsyncStorage.jwtToken) {
+  setAuthToken(AsyncStorage.jwtToken);
+  const decodedToken = jwt_decode(AsyncStorage.jwtToken);
+  // store.dispatch(setCurrentUser(decoded));
 }
 
 export default class App extends React.Component {

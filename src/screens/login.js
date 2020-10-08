@@ -6,6 +6,8 @@ import {
   Dimensions,
   TextInput,
   KeyboardAvoidingView,
+  AsyncStorage,
+  TouchableOpacity,
 } from "react-native";
 import Svg, { Image, Circle, ClipPath } from "react-native-svg";
 import Animated, { Easing } from "react-native-reanimated";
@@ -13,6 +15,8 @@ import { TapGestureHandler, State } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get("window");
 
 import Axios from "../../axios";
+import setAuthToken from "../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 
 const {
   Value,
@@ -144,6 +148,15 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password,
       });
+
+      console.log("before sending token");
+      // saving token to local storage
+      const token = response.data.token;
+      AsyncStorage.setItem("jwtToken", token);
+      setAuthToken(token);
+      const decodedToken = jwt_decode(token);
+      console.log("Decoded Token: ", decodedToken);
+
       this.props.navigation.navigate("Explore");
       console.log("Response: ", response.data);
     } catch (err) {
@@ -329,14 +342,16 @@ class Login extends Component {
                   this.props.navigation.navigate("Signin")
                 }
               > */}
-              <Animated.View style={styles.button}>
-                <Text
-                  style={{ fontSize: 20, fontWeight: "bold" }}
-                  onPress={this.logIn}
-                >
-                  SIGN IN
-                </Text>
-              </Animated.View>
+              <TouchableOpacity onPress={this.logIn}>
+                <Animated.View style={styles.button}>
+                  <Text
+                    style={{ fontSize: 20, fontWeight: "bold" }}
+                    // onPress={this.logIn}
+                  >
+                    SIGN IN
+                  </Text>
+                </Animated.View>
+              </TouchableOpacity>
               {/* </TapGestureHandler> */}
             </Animated.View>
           </View>

@@ -7,12 +7,16 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   StyleSheet,
+  AsyncStorage,
+  TouchableOpacity,
 } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { TapGestureHandler, State } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
 
 import Axios from "../../axios";
+import setAuthToken from "../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 
 // import 'react-phone-number-input/style.css';
 // import PhoneInput from 'react-phone-number-input';
@@ -63,7 +67,7 @@ class Signin extends Component {
       " + ",
       this.state.password2
     );
-    console.log("this.state.gender: ", this.state.gender);
+    console.log("this.state.gender: ", this.state.checked);
     ////////////////////////
     try {
       let response = await Axios.post("/api/users/register", {
@@ -74,8 +78,22 @@ class Signin extends Component {
         password2: this.state.password2,
         gender: this.state.checked,
       });
+
+      console.log("NOW GOING TO GENERATE TOKEN!!!!!!!!!!!!!!!!!");
+      // saving token to local storage
+      const token = response.data.token;
+      AsyncStorage.setItem("jwtToken", token);
+
+      // STORING TOKEN FROM ASYNC_STORAGE
+      // const token2 = await AsyncStorage.getItem("jwtToken");
+      // console.log("Token2: ", token2);
+
+      // setAuthToken(token);
+      // const decodedToken = jwt_decode(token);
+      // console.log("Decoded Token: ", decodedToken);
+
       this.props.navigation.navigate("successfulSignin");
-      console.log("Response: ", response.data);
+      console.log("Response: ", response.data.token);
     } catch (err) {
       console.log("Error: ", err.response.data);
       // console.warn("Error: ", err.response.data);
@@ -223,14 +241,16 @@ class Signin extends Component {
               this.props.navigation.navigate("successfulSignin")
             }
           > */}
-            <Animated.View style={styles.button}>
-              <Text
-                style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-                onPress={this.signIn}
-              >
-                REGISTER
-              </Text>
-            </Animated.View>
+            <TouchableOpacity onPress={this.logIn}>
+              <Animated.View style={styles.button}>
+                <Text
+                  style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+                  onPress={this.signIn}
+                >
+                  REGISTER
+                </Text>
+              </Animated.View>
+            </TouchableOpacity>
             {/* </TapGestureHandler> */}
           </ScrollView>
         </KeyboardAvoidingView>
