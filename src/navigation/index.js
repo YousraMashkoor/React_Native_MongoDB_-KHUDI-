@@ -14,6 +14,7 @@ import successfulSignin from "../component/successfulSignin";
 import loading from "../component/loading";
 import profile from "../component/dummyDisplay";
 import sellerForm from "../screens/sellerForm";
+import sellerProfle from "../screens/sellerProfile";
 import becomeSeller from "../component/becomeSeller";
 
 const Stack = createStackNavigator();
@@ -134,6 +135,11 @@ class Navigation extends Component {
             options={{ headerTitle: "KHUDI Seller" }}
             name="sellerForm"
             component={sellerForm}
+          />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="sellerProfile"
+            component={sellerProfle}
           />
         </Stack.Navigator>
       </NavigationContainer>

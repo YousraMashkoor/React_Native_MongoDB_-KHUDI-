@@ -26,7 +26,6 @@ const { width, height } = Dimensions.get("window");
 // const [checked, setChecked] = React.useState('first');
 
 import Axios from "../../axios";
-import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
 // SIGNIN FORM
@@ -188,7 +187,7 @@ class SellerSignin extends Component {
           socials: { twitter: this.state.socials_twitter },
         }
       );
-      // this.props.navigation.navigate("Explore");
+      this.props.navigation.navigate("sellerProfile");
       console.log("Response: ", response.data);
     } catch (err) {
       console.log("Error: ", err.response.data);
