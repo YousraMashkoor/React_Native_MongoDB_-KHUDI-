@@ -15,7 +15,6 @@ import { TapGestureHandler, State } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
 
 import Axios from "../../axios";
-import jwt_decode from "jwt-decode";
 
 // import 'react-phone-number-input/style.css';
 // import PhoneInput from 'react-phone-number-input';

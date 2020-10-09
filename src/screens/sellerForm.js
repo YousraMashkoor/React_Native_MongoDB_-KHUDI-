@@ -187,7 +187,7 @@ class SellerSignin extends Component {
           socials: { twitter: this.state.socials_twitter },
         }
       );
-      this.props.navigation.navigate("Explore");
+      this.props.navigation.navigate("sellerProfile");
       console.log("Response: ", response.data);
     } catch (err) {
       console.log("Error: ", err.response.data);

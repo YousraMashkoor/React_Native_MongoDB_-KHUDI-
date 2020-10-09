@@ -21,11 +21,15 @@ import editProfile from '../screens/editProfile';
 import editSellerProfile from '../screens/editSellerProfile';
 import profileSetting from '../screens/profileSetting';
 import order from '../screens/order';
+import createPost from '../screens/createPost';
+import faceDetect from '../screens/faceDetect';
 
 import successfulSignin from '../component/successfulSignin';
 import becomeSeller from '../component/becomeSeller';
 import loading from '../component/loading';
-import faceDetect from '../screens/faceDetect';
+import addPost from '../component/addPost';
+
+
 
 
 const Stack = createStackNavigator();
@@ -40,21 +44,28 @@ const Tab = createBottomTabNavigator();
             options={{
                 tabBarLabel: 'EXPLORE',
                 tabBarIcon: ({ tintColor }) => (
-                    <Icon name="ios-search" color={tintColor} size={24} />),
+                    <Icon name="ios-search" color='#1F2833' size={24} />),
                 }}
             />
             <Tab.Screen name="Profile" component={Profile} 
             options={{
                 tabBarLabel: 'PROFILE',
                 tabBarIcon: ({ tintColor }) => (
-                    <Icon name="ios-person" color={tintColor} size={24} />),
+                    <Icon name="ios-person" color='#1F2833' size={24} />),
+                }}
+            />
+            <Tab.Screen name="Order" component={Profile} 
+            options={{
+                tabBarLabel: 'ORDER',
+                tabBarIcon: ({ tintColor }) => (
+                    <Icon name="ios-cube" color='#1F2833' size={24} />),
                 }}
             />
             <Tab.Screen name="Chat" component={Chat} 
             options={{
                 tabBarLabel: 'CHAT',
                 tabBarIcon: ({ tintColor }) => (
-                    <Icon name="ios-chatboxes" color={tintColor} size={24} />),
+                    <Icon name="ios-chatboxes" color='#1F2833' size={24} />),
                 }}
             />
           </Tab.Navigator>
@@ -68,14 +79,28 @@ const Tab = createBottomTabNavigator();
             options={{
                 tabBarLabel: 'PROFILE',
                 tabBarIcon: ({ tintColor }) => (
-                    <Icon name="ios-person" color={tintColor} size={24} />),
+                    <Icon name="ios-person" color='#38DFEB' size={24} />),
+                }}
+            />
+            <Tab.Screen name="createPost" component={createPost} 
+            options={{
+                tabBarLabel: 'POST',
+                tabBarIcon: ({ tintColor }) => (
+                    <Icon name="ios-add-circle" color='#38DFEB' size={24} />),
+                }}
+            />
+            <Tab.Screen name="Order" component={createPost} 
+            options={{
+                tabBarLabel: 'ORDER',
+                tabBarIcon: ({ tintColor }) => (
+                    <Icon name="ios-cube" color='#38DFEB' size={24} />),
                 }}
             />
             <Tab.Screen name="Chat2" component={Chat} 
             options={{
                 tabBarLabel: 'CHAT',
                 tabBarIcon: ({ tintColor }) => (
-                    <Icon name="ios-chatboxes" color={tintColor} size={24} />),
+                    <Icon name="ios-chatboxes" color='#38DFEB' size={24} />),
                 }}
             />
           </Tab.Navigator>
@@ -109,6 +134,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="profileSetting" component={profileSetting} />
                     <Stack.Screen options={{headerTitle:'Order Requirements'}} name="getRequirements" component={getRequirements} />
                     <Stack.Screen options={{headerShown: false}} name="order" component={order} />
+                    <Stack.Screen options={{headerTitle:'New Post'}} name="addPost" component={addPost} />
                 </Stack.Navigator>
             </NavigationContainer>
         )
