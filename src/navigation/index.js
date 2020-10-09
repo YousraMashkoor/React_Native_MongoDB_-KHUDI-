@@ -13,6 +13,7 @@ import Profile from '../screens/profile';
 import sellerProfile from '../screens/sellerProfile';
 import Postview from '../screens/postView';
 import Article from '../screens/dummy';
+import getRequirements from '../screens/getRequirements';
 import Chat from '../screens/chat';
 import Explore from '../screens/explore';
 import sellerForm from '../screens/sellerForm';
@@ -104,6 +105,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="editProfile" component={editProfile} />
                     <Stack.Screen options={{headerShown: false}} name="editSellerProfile" component={editSellerProfile} />
                     <Stack.Screen options={{headerShown: false}} name="profileSetting" component={profileSetting} />
+                    <Stack.Screen options={{headerTitle:'Order Requirements'}} name="getRequirements" component={getRequirements} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

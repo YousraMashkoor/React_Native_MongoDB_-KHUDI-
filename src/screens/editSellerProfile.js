@@ -160,9 +160,9 @@ const editSellerProfile = () => {
           />
         </View>
         <View style={styles.action}>
-          <FontAwesome name="envelope-o" color={colors.text} size={20} />
+          <FontAwesome name="user" color={colors.text} size={20} />
           <TextInput
-            placeholder="Email"
+            placeholder="Skills"
             placeholderTextColor="#FFFFFF"
             keyboardType="email-address"
             autoCorrect={false}
@@ -177,35 +177,7 @@ const editSellerProfile = () => {
         <View style={styles.action}>
           <FontAwesome name="globe" color={colors.text} size={20} />
           <TextInput
-            placeholder="Country"
-            placeholderTextColor="#FFFFFF"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <Icon name="city" color={colors.text} size={20} />
-          <TextInput
-            placeholder="City"
-            placeholderTextColor="#FFFFFF"
-            autoCorrect={false}
-            style={[
-              styles.textInput,
-              {
-                color: colors.text,
-              },
-            ]}
-          />
-        </View>
-        <View style={styles.action}>
-          <Icon name="map-marker-outline" color={colors.text} size={20} />
-          <TextInput
-            placeholder="Street Address"
+            placeholder="Language"
             placeholderTextColor="#FFFFFF"
             autoCorrect={false}
             style={[
@@ -218,7 +190,7 @@ const editSellerProfile = () => {
         </View>
 
         <View style={styles.action}>
-          <Icon name="map-marker-outlinE" color={colors.text} size={20} />
+          <Icon name="account" color={colors.text} size={20} />
           <TextInput
             placeholder="About me"
             placeholderTextColor="#FFFFFF"

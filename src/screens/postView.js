@@ -46,7 +46,8 @@ class postview extends Component{
 
                 </ImageBackground>
 
-                <TouchableOpacity style={styles.orderbtn}>
+                <TouchableOpacity style={styles.orderbtn} onPress={() =>
+              this.props.navigation.navigate("getRequirements")}>
                     <Text style={{color:theme.colors.blue, fontWeight:'bold',fontSize: 19}}>Order</Text>
                 </TouchableOpacity>
 

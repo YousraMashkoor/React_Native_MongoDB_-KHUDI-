@@ -6,7 +6,8 @@ import {
   Dimensions,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity
+  AsyncStorage,
+  TouchableOpacity,
 } from "react-native";
 import Svg, { Image, Circle, ClipPath } from "react-native-svg";
 import Animated, { Easing } from "react-native-reanimated";
@@ -14,7 +15,7 @@ import { TapGestureHandler, State } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get("window");
 
 import Axios from "../../axios";
-import { TouchableRipple } from "react-native-paper";
+import jwt_decode from "jwt-decode";
 
 const {
   Value,
@@ -146,8 +147,17 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password,
       });
+
+      console.log("before sending token");
+      // saving token to local storage
+      const token = response.data.token;
+      AsyncStorage.setItem("jwtToken", token);
+      // setAuthToken(token);
+      // const decodedToken = jwt_decode(token);
+      // console.log("Decoded Token: ", decodedToken);
+
       this.props.navigation.navigate("Explore");
-      console.log("Response: ", response.data);
+      console.log("Response: ", response.data.token);
     } catch (err) {
       console.log("Error: ", err.response.data);
       // console.warn("Error: ", err.response.data);
@@ -326,18 +336,22 @@ class Login extends Component {
                 Forgot your password?
               </Text>
 
-              <TouchableOpacity
-                onPress={this.logIn}
-              >
-              <Animated.View style={styles.button}>
-                <Text
-                  style={{ fontSize: 20, fontWeight: "bold" }}
-                  // onPress={this.logIn}
-                >
-                  SIGN IN
-                </Text>
-              </Animated.View>
+              {/* <TapGestureHandler
+                onHandlerStateChange={() =>
+                  this.props.navigation.navigate("Signin")
+                }
+              > */}
+              <TouchableOpacity onPress={this.logIn}>
+                <Animated.View style={styles.button}>
+                  <Text
+                    style={{ fontSize: 20, fontWeight: "bold" }}
+                    // onPress={this.logIn}
+                  >
+                    SIGN IN
+                  </Text>
+                </Animated.View>
               </TouchableOpacity>
+              {/* </TapGestureHandler> */}
             </Animated.View>
           </View>
         </View>
