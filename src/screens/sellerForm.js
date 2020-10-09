@@ -187,7 +187,7 @@ class SellerSignin extends Component {
           socials: { twitter: this.state.socials_twitter },
         }
       );
-      this.props.navigation.navigate("sellerProfile");
+      this.props.navigation.navigate("Profile2");
       console.log("Response: ", response.data);
     } catch (err) {
       console.log("Error: ", err.response.data);
@@ -902,20 +902,19 @@ class SellerSignin extends Component {
               /> */}
             </View>
 
-            {/* <TapGestureHandler
-              onHandlerStateChange={() =>
-                this.props.navigation.navigate("Explore")
+            <TapGestureHandler
+              onHandlerStateChange={this.sellerForm
               }
-            > */}
+            >
             <Animated.View style={styles.button}>
               <Text
                 style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-                onPress={this.sellerForm}
+                // onPress={this.sellerForm}
               >
                 VERIFY
               </Text>
             </Animated.View>
-            {/* </TapGestureHandler> */}
+            </TapGestureHandler>
           </KeyboardAvoidingView>
         </ScrollView>
       </View>

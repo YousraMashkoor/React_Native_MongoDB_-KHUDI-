@@ -121,6 +121,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="successfulSignin" component={successfulSignin} />
                     <Stack.Screen options={{headerShown: false}} name="loading" component={loading} />
                     <Stack.Screen options={{headerShown: false}} name="becomeSeller" component={becomeSeller} />
+                    <Stack.Screen options={{headerShown: false}} name="sellerProfile" component={sellerProfile} />
                     <Stack.Screen options={{headerShown: false}} name="Explore" component={MyTabs} />
                     <Stack.Screen options={{headerShown: false}} name="SellerMode" component={MyTabs2} />
                     <Stack.Screen options={{headerTitle:'KHUDI Seller'}} name="sellerForm" component={sellerForm} />
@@ -135,6 +136,8 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerTitle:'Order Requirements'}} name="getRequirements" component={getRequirements} />
                     <Stack.Screen options={{headerShown: false}} name="order" component={order} />
                     <Stack.Screen options={{headerTitle:'New Post'}} name="addPost" component={addPost} />
+                    <Stack.Screen options={{headerShown: false}} name="Profile2" component={MyTabs2} />
+                
                 </Stack.Navigator>
             </NavigationContainer>
         )

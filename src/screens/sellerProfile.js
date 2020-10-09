@@ -94,7 +94,7 @@ class sellerProfile extends Component {
     this.setState({ ["skills"]: skills });
     this.setState({ ["description"]: description });
     console.log("User: ", decodedToken.fname);
-    console.log(" End of SellerForm");
+    console.log(" End of SellerProfile");
   }
 
   render() {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect  } from "react";
 import {
   View,
   Text,
@@ -9,10 +9,12 @@ import {
   StyleSheet,
   Picker,
   TouchableOpacity,
+  Button, Image, Platform
 } from "react-native";
 import QA from '../component/requirements'
 import { TapGestureHandler, State } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
+import * as ImagePicker from 'expo-image-picker';
 
 
 // import 'react-phone-number-input/style.css';
@@ -23,14 +25,57 @@ const { width, height } = Dimensions.get("window");
 // SIGNIN FORM
 
 class createPost extends Component {
-    state = { category: 'baking' };
+    state = { category: 'baking',  image: null };
+
+    _pickImage = async () => {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: false,
+        aspect: [4, 3],
+      });
+      
+      if (result.cancelled) {
+        console.log('got here');
+        return;
+      }
+      this.setState({ image: result.uri });
+    };
+
+
+    async componentDidMount(){
+
+      if (Platform.OS !== 'web') {
+               const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
+             if (status !== 'granted') {
+                 alert('Sorry, we need camera roll permissions to make this work!');
+              }
+           }
+
+    }
+
+     // useEffect(() => {
+    //   (async () => {
+    //     if (Platform.OS !== 'web') {
+    //       const { status } = await ImagePicker.requestCameraRollPermissionsAsync();
+    //       if (status !== 'granted') {
+    //         alert('Sorry, we need camera roll permissions to make this work!');
+    //       }
+    //     }
+    //   })();
+    // }, []);
+
 
   render() {
 
     // const { checked } = "first";
     // const setChecked = (checked) => this.setState({ checked});
     const { category } = "first";
+    let { image } = this.state;
+   
     const setCategory = (category) => this.setState({ category});
+   
+   
+
+  
     
     return (
       <View
@@ -69,7 +114,7 @@ class createPost extends Component {
               placeholderTextColor="black"
               
             />
-{/* **************SUHA agr picker se hone me masla hora hoto mjhe btadena.. radio button dal dungi */}
+{/* **************SUHA agr picker se hone me masla hora hoto mjhe btadena.. radio button niche he */}
             <Text style={{marginLeft:20, color: "#1F2833", marginTop:10}}>SELECT CATEGORY</Text>
             <Picker
                 selectedValue={category}
@@ -119,8 +164,16 @@ class createPost extends Component {
               placeholderTextColor="black"
               keyboardType="number-pad"
               secureTextEntry
-              
             />
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button
+          title="Upload Visuals"
+          onPress={this._pickImage}
+          style={styles.button}
+        />
+        {image &&
+          <Image source={{ uri: image }} style={{ width: 200, height: 200, resizeMode: 'contain' }} />}
+      </View>
 
 <QA/>
             
@@ -148,8 +201,13 @@ class createPost extends Component {
         </KeyboardAvoidingView>
       </View>
     );
+
+    
   }
+
+
 }
+
 
 export default createPost;
 

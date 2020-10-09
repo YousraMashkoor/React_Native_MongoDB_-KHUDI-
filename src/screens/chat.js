@@ -27,7 +27,7 @@ export default function chat() {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1 , backgroundColor:'white'}}>
       {hasJoined ? (
         <GiftedChat
           renderUsernameOnMessage

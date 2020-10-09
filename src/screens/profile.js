@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {View, SafeAreaView, StyleSheet} from 'react-native';
+import {View, SafeAreaView, StyleSheet,
+  AsyncStorage} from 'react-native';
 import {
   Avatar,
   Title,
@@ -15,24 +16,67 @@ import { Switch } from 'react-native-paper';
 
 // import files from '../assets/filesBase64';
 
+import Axios from "../../axios";
+import jwt_decode from "jwt-decode";
+
 class profile extends Component {
 
   constructor(props) { 
     super(props); 
     this.state = {
-      sellerMode: false
-     }
+      sellerMode: false,
+      fname: "",
+      lname: "",
+      email: "",
+      status: false,
+     }     
+    this.getApiData();
   }
   switch = (value) => {
     this.setState({ sellerMode: value });
-    this.state.sellerMode ? this.props.navigation.navigate('Explore'): this.props.navigation.navigate('SellerMode');
+    this.state.sellerMode ? this.props.navigation.navigate('Explore'): this.state.status ? this.props.navigation.navigate('becomeSeller'):  this.props.navigation.navigate('Profile2');
     this.setState({ sellerMode: false });
 
   }
 
+  async getApiData() {
+    console.log("In BUYER PROFILE!!!");
+
+    // BUYER DATA
+    const asyncToken = await AsyncStorage.getItem("jwtToken");
+    console.log("Token: ", asyncToken);
+    const decodedToken = jwt_decode(asyncToken);
+    const fname = decodedToken.fname;
+    const lname = decodedToken.lname;
+    const email = decodedToken.email;
+    this.setState({ ["fname"]: fname });
+    this.setState({ ["lname"]: lname });
+    this.setState({ ["email"]: email });
+
+    
+    console.log("User: ", decodedToken.id);
+    const id = decodedToken.id;
+    try{
+      let buyerData = await Axios.get(`/api/seller/user/${id}`);
+      console.log("Buyer Data: ", buyerData);
+    }
+    catch(err){
+      if (err.response) {
+        /* The request was made and the server responded with a status code that falls out of the range of 2xx*/
+        console.log(err.response.status);
+        this.setState({ status: true })
+      } else {
+        console.log("Error", err.message);
+        
+      }
+    }
+    console.log(this.sellerMode);
+  }
+
 render(){
-  // let isSwitchOn=false;
+  // let isSwitchOn=false; 
   // const onToggleSwitch = () => {(isSwitchOn=!isSwitchOn)};
+  const {fname, lname, email} = this.state;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -49,24 +93,24 @@ render(){
             <Title style={[styles.title, {
               marginTop:15,
               marginBottom: 5,
-            }]}>John Doe</Title>
-            <Caption style={styles.caption}>@j_doe</Caption>
+            }]}>{fname + " " + lname}</Title>
+            {/* <Caption style={styles.caption}>@j_doe</Caption> */}
           </View>
         </View>
       </View>
 
       <View style={styles.userInfoSection}>
-        <View style={styles.row}>
+        {/* <View style={styles.row}>
           <Icon name="map-marker-radius" color="#777777" size={20}/>
           <Text style={{color:"#777777", marginLeft: 20}}>Kolkata, India</Text>
         </View>
         <View style={styles.row}>
           <Icon name="phone" color="#777777" size={20}/>
           <Text style={{color:"#777777", marginLeft: 20}}>+91-900000009</Text>
-        </View>
+        </View> */}
         <View style={styles.row}>
           <Icon name="email" color="#777777" size={20}/>
-          <Text style={{color:"#777777", marginLeft: 20}}>john_doe@email.com</Text>
+          <Text style={{color:"#777777", marginLeft: 20}}>{email}</Text>
         </View>
       </View>
 
@@ -75,11 +119,11 @@ render(){
             borderRightColor: '#dddddd',
             borderRightWidth: 1
           }]}>
-            <Title>140 Rs</Title>
+            <Title>0 Rs</Title>
             <Caption>Wallet</Caption>
           </View>
           <View style={styles.infoBox}>
-            <Title>12</Title>
+            <Title>1</Title>
             <Caption>Orders</Caption>
           </View>
       </View>
