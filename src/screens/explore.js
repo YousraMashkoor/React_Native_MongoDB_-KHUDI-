@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import {
     View,
@@ -12,6 +11,7 @@ import {
     Image,
     Dimensions,
     Animated,
+    AsyncStorage,
     TouchableOpacity
 } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -19,7 +19,18 @@ import Category from '../component/Explore/category'
 import Card from '../component/Explore/card'
 import Tag from '../component/Explore/tags'
 const { height, width } = Dimensions.get('window')
+
+import Axios from "../../axios";
+import jwt_decode from "jwt-decode";
 class Explore extends Component {
+    constructor(props) { 
+        super(props); 
+        this.state = {
+          fname: "",
+         }     
+        this.getApiData();
+      }
+
 
     UNSAFE_componentWillMount() {
 
@@ -70,7 +81,21 @@ class Explore extends Component {
         this.scroll.scrollTo({x: 0, y: height*2.5, animated: true});
      }
 
+     async getApiData() {
+        console.log("In EXPLORE!!!");
+    
+        // Explore
+        const asyncToken = await AsyncStorage.getItem("jwtToken");
+        console.log("Token: ", asyncToken);
+        const decodedToken = jwt_decode(asyncToken);
+        const fname = decodedToken.fname;
+        this.setState({ ["fname"]: fname });
+    
+        
+      }
+
     render() {
+        const {fname} = this.state;
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={{ flex: 1 }}>
@@ -114,7 +139,7 @@ class Explore extends Component {
                     >
                         <View style={{ flex: 1, backgroundColor: 'white', paddingTop: 20 }}>
                             <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20 }}>
-                                What can we help you find, Yousra?
+                        What can we help you find, {fname}?
                             </Text>
 
                             <View style={{ height: 130, marginTop: 20 }}>

@@ -239,7 +239,7 @@ class Signin extends Component {
               this.props.navigation.navigate("successfulSignin")
             }
           > */}
-            <TouchableOpacity onPress={this.logIn}>
+            <TouchableOpacity onPress={this.signIn}>
               <Animated.View style={styles.button}>
                 <Text
                   style={{ fontSize: 20, fontWeight: "bold", color: "white" }}

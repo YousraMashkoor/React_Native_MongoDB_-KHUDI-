@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import {View, SafeAreaView, StyleSheet,
-  AsyncStorage} from 'react-native';
+import {View, SafeAreaView, StyleSheet, AsyncStorage} from 'react-native';
 import {
   Avatar,
   Title,
@@ -157,7 +156,7 @@ render(){
           value={this.state.sellerMode}
         />
         <TapGestureHandler 
-          // onHandlerStateChange={() => this.props.navigation.navigate('faceDetect')}
+          onHandlerStateChange={() => this.props.navigation.navigate('Login')}
           >
           <View style={styles.button}>
             <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>Logout</Text>

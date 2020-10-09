@@ -7,6 +7,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   StyleSheet,
+  AsyncStorage,
   Picker,
   TouchableOpacity,
   Button, Image, Platform
@@ -16,6 +17,8 @@ import { TapGestureHandler, State } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
 import * as ImagePicker from 'expo-image-picker';
 
+import Axios from "../../axios";
+import jwt_decode from "jwt-decode";
 
 // import 'react-phone-number-input/style.css';
 // import PhoneInput from 'react-phone-number-input';
@@ -26,6 +29,18 @@ const { width, height } = Dimensions.get("window");
 
 class createPost extends Component {
     state = { category: 'baking',  image: null };
+    constructor() {
+      super();
+      this.state = {
+        name: "",
+        price: "",
+        tagline: "",
+        category: "",
+        description: "",
+        postImage: "",
+        errors: "",
+      };
+    }
 
     _pickImage = async () => {
       let result = await ImagePicker.launchImageLibraryAsync({
@@ -64,18 +79,54 @@ class createPost extends Component {
     // }, []);
 
 
+    onChangeText = (key, val) => {
+      this.setState({ [key]: val });
+    };
+
+    postForm = async () => {
+      console.log("Add post FRONTEND!!!!")
+      const {name, price, tagline, category, description, postImage} = this.state;
+      const asyncToken = await AsyncStorage.getItem("jwtToken");
+      console.log("Token: ", asyncToken);
+      const decodedToken = jwt_decode(asyncToken);
+      const id = decodedToken.id;
+      console.log("Decoded Token: ", id);
+      console.log("postForm");
+      try {
+        let response = await Axios.post(`/api/posts//${id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: asyncToken,
+            },
+            name: this.state.name,
+            price: this.state.price,
+            tagline: this.state.tagline,
+            category: this.state.category,
+            description: this.state.description,
+            postImage: this.state.postImage,
+          }
+        );
+        this.props.navigation.navigate("createPost");
+        console.log("Response: ", response.data);
+      } catch (err) {
+        console.log("Error: ", err.response.data);
+        // console.warn("Error: ", err.response.data);
+        this.setState({ errors: err.response.data });
+      }
+      console.log("In the end of ADD_POST");
+    };
+
   render() {
+    const { errors } = this.state;
 
     // const { checked } = "first";
     // const setChecked = (checked) => this.setState({ checked});
-    const { category } = "first";
+    
+    const { category } = this.state;
+    const setCategory = (category) => this.setState({ category });
+    // const { category } = "first";
     let { image } = this.state;
-   
-    const setCategory = (category) => this.setState({ category});
-   
-   
-
-  
     
     return (
       <View
@@ -96,6 +147,8 @@ class createPost extends Component {
                 placeholder="POST TITLE"
                 style={[styles.textInput]}
                 placeholderTextColor="black"
+                maxLength={100}
+                onChangeText={(val) => this.onChangeText("name", val)}
                 
               />
               
@@ -103,15 +156,18 @@ class createPost extends Component {
                 placeholder="TAG LINE"
                 style={[styles.textInput]}
                 placeholderTextColor="black"
+                onChangeText={(val) => this.onChangeText("tagline", val)}
                 
               />
               
             </View>
 
             <TextInput
-              placeholder="DETAILS"
+              placeholder="DESCRIPTION"
               style={styles.textInput}
-              placeholderTextColor="black"
+              placeholderTextColor="black"     
+              maxLength={300}         
+              onChangeText={(val) => this.onChangeText("description", val)}
               
             />
 {/* **************SUHA agr picker se hone me masla hora hoto mjhe btadena.. radio button niche he */}
@@ -163,19 +219,20 @@ class createPost extends Component {
               style={styles.textInput}
               placeholderTextColor="black"
               keyboardType="number-pad"
-              secureTextEntry
+              onChangeText={(val) => this.onChangeText("price", val)}
             />
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Button
           title="Upload Visuals"
           onPress={this._pickImage}
           style={styles.button}
+          onChangeText={(val) => this.onChangeText("postImage", val)}
         />
         {image &&
           <Image source={{ uri: image }} style={{ width: 200, height: 200, resizeMode: 'contain' }} />}
       </View>
 
-<QA/>
+        {/* <QA/> */}
             
              
            
@@ -187,15 +244,16 @@ class createPost extends Component {
               this.props.navigation.navigate("successfulSignin")
             }
           > */}
-            <TouchableOpacity onPress={()=>this.props.navigation.navigate("createPost")}>
+            <TapGestureHandler onHandlerStateChange={this.postForm}>
               <Animated.View style={styles.button}>
                 <Text
                   style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
+                  // onPress={()=>this.postForm}
                 >
                   CREATE
                 </Text>
               </Animated.View>
-            </TouchableOpacity>
+            </TapGestureHandler>
             {/* </TapGestureHandler> */}
           </ScrollView>
         </KeyboardAvoidingView>

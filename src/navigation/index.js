@@ -23,6 +23,7 @@ import profileSetting from '../screens/profileSetting';
 import order from '../screens/order';
 import createPost from '../screens/createPost';
 import faceDetect from '../screens/faceDetect';
+import profileView from '../screens/profileView';
 
 import successfulSignin from '../component/successfulSignin';
 import becomeSeller from '../component/becomeSeller';
@@ -137,6 +138,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="order" component={order} />
                     <Stack.Screen options={{headerTitle:'New Post'}} name="addPost" component={addPost} />
                     <Stack.Screen options={{headerShown: false}} name="Profile2" component={MyTabs2} />
+                    <Stack.Screen options={{headerShown: false}} name="profileView" component={profileView} />
                 
                 </Stack.Navigator>
             </NavigationContainer>
