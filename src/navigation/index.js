@@ -20,6 +20,8 @@ import sellerForm from '../screens/sellerForm';
 import editProfile from '../screens/editProfile';
 import editSellerProfile from '../screens/editSellerProfile';
 import profileSetting from '../screens/profileSetting';
+import order from '../screens/order';
+
 import successfulSignin from '../component/successfulSignin';
 import becomeSeller from '../component/becomeSeller';
 import loading from '../component/loading';
@@ -106,6 +108,7 @@ class Navigation extends Component{
                     <Stack.Screen options={{headerShown: false}} name="editSellerProfile" component={editSellerProfile} />
                     <Stack.Screen options={{headerShown: false}} name="profileSetting" component={profileSetting} />
                     <Stack.Screen options={{headerTitle:'Order Requirements'}} name="getRequirements" component={getRequirements} />
+                    <Stack.Screen options={{headerShown: false}} name="order" component={order} />
                 </Stack.Navigator>
             </NavigationContainer>
         )

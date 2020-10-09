@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import { View, Text, Button, Dimensions, TextInput, FlatList, KeyboardAvoidingView, StyleSheet, SafeAreaView, ScrollView, ImagePickerIOS } from 'react-native';
 import Animated from 'react-native-reanimated';
-// import Svg,{Image} from 'react-native-svg'
+import { TapGestureHandler, State } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get('window');
 import {YellowBox} from 'react-native';
 
@@ -60,13 +60,17 @@ class getRequirements extends Component{
                 autoCompleteType="cc-number"
               />
               
-                <View>
+              <TapGestureHandler
+              onHandlerStateChange={() =>
+                this.props.navigation.navigate("order")
+              }
+            >
                     <Animated.View style={styles.button}>
                         <Text
                         style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-                        onPress={this.sellerForm}>SUBMIT</Text>
+                       >SUBMIT</Text>
                     </Animated.View>
-                </View>
+                </TapGestureHandler>
                 
             </KeyboardAvoidingView>
             </View>
