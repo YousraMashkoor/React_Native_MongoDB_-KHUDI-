@@ -10,7 +10,7 @@ import {
   Picker,
   TouchableOpacity,
 } from "react-native";
-import { RadioButton } from "react-native-paper";
+import QA from '../component/requirements'
 import { TapGestureHandler, State } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
 
@@ -27,9 +27,11 @@ class createPost extends Component {
 
   render() {
 
-    const { checked } = this.state;
-    const setChecked = (checked) => this.setState({ checked});
-
+    // const { checked } = "first";
+    // const setChecked = (checked) => this.setState({ checked});
+    const { category } = "first";
+    const setCategory = (category) => this.setState({ category});
+    
     return (
       <View
         style={{
@@ -67,32 +69,49 @@ class createPost extends Component {
               placeholderTextColor="black"
               
             />
-
- //*********** SUHA picker se nhn ho to bta dena me radio button dal dungi. yahan phans mt jana!!!!!!!  */           
-        <RadioButton.Group
+{/* **************SUHA agr picker se hone me masla hora hoto mjhe btadena.. radio button dal dungi */}
+            <Text style={{marginLeft:20, color: "#1F2833", marginTop:10}}>SELECT CATEGORY</Text>
+            <Picker
+                selectedValue={category}
+                style={[styles.textInput]}
+                onValueChange={(category) => setCategory(category)}
+                value={category}
+              >
+                <Picker.Item label="Baking" value="baking" />
+                <Picker.Item label="Stitching" value="stitching" />
+                <Picker.Item label="Arts and Crafts" value="arts" />
+                <Picker.Item label="Development and Designing" value="development" />
+              </Picker>
+        {/* <RadioButton.Group
               onValueChange={(checked) => setChecked(checked)}
               value={checked}
             >
               <RadioButton.Item
                 defaultChecked
                 style={styles.radio}
-                label="Male"
-                value="male"
+                label="Baking"
+                value="baking"
                 color="#1F2833"
               />
               <RadioButton.Item
                 style={styles.radio}
-                label="Female"
-                value="female"
+                label="Stitching"
+                value="stitching"
                 color="#1F2833"
               />
               <RadioButton.Item
                 style={styles.radio}
-                label="Other"
-                value="other"
+                label="Development"
+                value="development"
                 color="#1F2833"
               />
-            </RadioButton.Group>
+              <RadioButton.Item
+                style={styles.radio}
+                label="Arts and Crafts"
+                value="art"
+                color="#1F2833"
+              />
+            </RadioButton.Group> */}
             
             <TextInput
               placeholder="STARTING PRICE"
@@ -102,15 +121,10 @@ class createPost extends Component {
               secureTextEntry
               
             />
+
+<QA/>
             
              
-            <TextInput
-              placeholder="CONFIRM PASSWORD"
-              style={styles.textInput}
-              placeholderTextColor="black"
-              secureTextEntry
-             
-            />
            
               
             
@@ -120,13 +134,12 @@ class createPost extends Component {
               this.props.navigation.navigate("successfulSignin")
             }
           > */}
-            <TouchableOpacity onPress={()=>this.props.navigation.navigate("order")}>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate("createPost")}>
               <Animated.View style={styles.button}>
                 <Text
                   style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
-                  onPress={this.signIn}
                 >
-                  REGISTER
+                  CREATE
                 </Text>
               </Animated.View>
             </TouchableOpacity>
