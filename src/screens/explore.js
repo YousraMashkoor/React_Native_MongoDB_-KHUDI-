@@ -203,7 +203,7 @@ class Explore extends Component {
                                     rating={4}
                                     img={require('./../../assets/baking.jpg')}
                                     category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    details="Will bild you delicious bakery cookie dow cake for you and your family, just let us know your details and the cake is served right at your door steps, so order now and join the fun"
                                 />
                                 <Card 
                                     width={width}
@@ -214,7 +214,7 @@ class Explore extends Component {
                                     rating={5}
                                     img={require('./../../assets/bread.jpg')}
                                     category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    details="Will bild you delicious cheesy garlic bun or balls for you and your family, just let us know your details and the cake is served right at your door steps, so order now and join the fun"
                                 
                                 />
                                 <Card
@@ -226,7 +226,7 @@ class Explore extends Component {
                                     rating={4}
                                     img={require('./../../assets/red.jpg')}
                                     category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    details="Bake you red velvet cake, typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
                                 <Card
@@ -238,7 +238,7 @@ class Explore extends Component {
                                     rating={5}
                                     img={require('./../../assets/pizza.jpg')}
                                     category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    details="Delicious vegie pizza customized to your liking typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
 
@@ -252,47 +252,47 @@ class Explore extends Component {
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Full Lehenga"
-                                    type="CUSTOMIZED - Flavoured frostings - 2 layer"
-                                    price={500}
+                                    type="CUSTOMIZED - long short"
+                                    price={1000}
                                     rating={4}
                                     img={require('./../../assets/stitching.jpg')}
-                                    category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    category="stitching"
+                                    details="Will stitch you customized embroidory lehenga for you and your family, just let us know your details and the cake is served right at your door steps, so order now and join the fun"
                                 />
                                 <Card 
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Embroidry"
-                                    type="CUSTOMIZED - Cheese layers - Extra Fillings"
+                                    type="CUSTOMIZED - crochet"
                                     price={500}
                                     rating={5}
                                     img={require('./../../assets/stitching2.jpg')}
-                                    category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    category="stitching"
+                                    details="i will crochet you a unique embroidory and your family, just let us know your details and the cake is served right at your door steps, so order now and join the fun"
                                 
                                 />
                                 <Card
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Kurti Stitching"
-                                    type="CUSTOMIZED - Vanella frostings - 3 layer"
-                                    price={500}
+                                    type="CUSTOMIZED - handmade"
+                                    price={600}
                                     rating={4}
                                     img={require('./../../assets/stitching3.jpg')}
-                                    category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    category="stitchig"
+                                    details="Stich your kirtis for woth latet digital printing aswell typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
                                 <Card
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Men Shilwar Qameez"
-                                    type="CUSTOMIZED - Cheese layers - 4 Toppings - Crisp or Calm"
+                                    type="CUSTOMIZED -"
                                     price={500}
                                     rating={5}
                                     img={require('./../../assets/stitching4.jpg')}
-                                    category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    category="stitching"
+                                    details="We will Stitch man clothing for you and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
                                 
@@ -309,35 +309,35 @@ class Explore extends Component {
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="UI UX Design"
-                                    type="CUSTOMIZED - Flavoured frostings - 2 layer"
-                                    price={500}
+                                    type="CUSTOMIZED - Photoshop - canva"
+                                    price={40}
                                     rating={4}
                                     img={require('./../../assets/dev.jpg')}
-                                    category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    category="development"
+                                    details="UI UX designign the printing and industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 />
                                 <Card 
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Wordpress Web Development"
-                                    type="CUSTOMIZED - Cheese layers - Extra Fillings"
+                                    type="CUSTOMIZED - wordpress"
                                     price={500}
                                     rating={5}
                                     img={require('./../../assets/web.jpg')}
-                                    category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    category="development"
+                                    details="Develpment of mern stack website typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
                                 <Card
                                     width={width}
                                     navigation={this.props.navigation}
                                     name="Poster Design"
-                                    type="CUSTOMIZED - Vanella frostings - 3 layer"
-                                    price={500}
+                                    type="CUSTOMIZED - photoshop"
+                                    price={1000}
                                     rating={4}
                                     img={require('./../../assets/web2.jpg')}
-                                    category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    category="development"
+                                    details="Desing you an interesting wordpress website and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
                                 <Card
@@ -345,11 +345,11 @@ class Explore extends Component {
                                     navigation={this.props.navigation}
                                     name="React Native Full Mobile"
                                     type="CUSTOMIZED - Cheese layers - 4 Toppings - Crisp or Calm"
-                                    price={500}
+                                    price={600}
                                     rating={5}
                                     img={require('./../../assets/web3.jpg')}
                                     category="baking"
-                                    details="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+                                    details="React native the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
                                 
                                 />
                             </View>

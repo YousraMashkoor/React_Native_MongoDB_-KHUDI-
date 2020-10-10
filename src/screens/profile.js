@@ -135,7 +135,7 @@ render(){
             <Text style={styles.menuItemText}>Join Conversation</Text>
           </View>
         </TouchableRipple>
-        <TouchableRipple onPress={() => {}}>
+        <TouchableRipple onPress={() => {this.props.navigation.navigate('viewOrder')}}>
           <View style={styles.menuItem}>
             <Icon name="package-variant" color="#38DFEB" size={25}/>
             <Text style={styles.menuItemText}>Orders</Text>

@@ -10,7 +10,7 @@ export default function chat() {
   const socket = useRef(null);
 
   useEffect(() => {
-    socket.current = io("http://192.168.10.5:3001");
+    socket.current = io("http://dda0f312b500.ngrok.io");
     socket.current.on("message", message => {
       setRecvMessages(prevState => GiftedChat.append(prevState, message));
     });

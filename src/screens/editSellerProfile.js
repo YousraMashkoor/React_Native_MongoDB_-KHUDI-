@@ -140,7 +140,7 @@ const editSellerProfile = () => {
             </View>
           </TouchableOpacity>
           <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold', color:"#FFFFFF"}}>
-            John Doe
+            Suha Sami
           </Text>
         </View>
 
