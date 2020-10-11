@@ -140,7 +140,7 @@ const editProfile = () => {
             </View>
           </TouchableOpacity>
           <Text style={{marginTop: 10, fontSize: 18, fontWeight: 'bold'}}>
-            Suha Sami
+            yousra mashkoor
           </Text>
         </View>
 

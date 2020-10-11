@@ -134,7 +134,7 @@ class createPost extends Component {
             <Text style={{color: "#1F2833",fontWeight: "bold",textAlign: "center",fontSize: 22,marginVertical: 10,}}>
               Your Posts
             </Text>
-            {console.log("after flast")}
+            
             <View style={{ paddingHorizontal: 20, marginTop: 20, flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
 
             {/* <FlatList

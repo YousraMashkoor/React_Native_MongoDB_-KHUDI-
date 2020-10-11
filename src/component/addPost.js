@@ -232,19 +232,13 @@ class createPost extends Component {
           <Image source={{ uri: image }} style={{ width: 200, height: 200, resizeMode: 'contain' }} />}
       </View>
 
-        {/* <QA/> */}
-            
-             
-           
-              
-            
-
+        <QA/>
             {/* <TapGestureHandler
             onHandlerStateChange={() =>
               this.props.navigation.navigate("successfulSignin")
             }
           > */}
-            <TapGestureHandler onHandlerStateChange={this.postForm}>
+            <TapGestureHandler onHandlerStateChange={()=>this.props.navigation.navigate("createPost")}>
               <Animated.View style={styles.button}>
                 <Text
                   style={{ fontSize: 20, fontWeight: "bold", color: "white" }}
